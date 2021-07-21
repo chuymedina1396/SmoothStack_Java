@@ -1,0 +1,72 @@
+Intro to Java
+    -- Understand the JVM and how java is platform independence.
+
+    OOP
+        -- Reusability of code.
+        -- Emphasis of on data rather than 
+        -- 
+
+        Class and Objects:
+
+            -- What is a class?
+                -- Blueprint.
+
+                Smart Phone(...attributes):
+                    is a class.
+                        -- Operating system
+                        -- price
+                        -- all other attributes.
+            -- What is an object:
+                -- State/behavior
+                When two objects are equal it doesn/t mean it has the same memory location.
+        4 pillars of oop:
+
+            - Abstraction: the hiding of data
+            - Encapulation: grouping of methods into a class.
+            - Polymorphism: one name many forms. Video calling( meet, hangouts, skype, facetime)
+                -- obverloading
+                -- overriding
+
+Java is distrubuted:
+    how do you distubute the program?
+        -- java supports all open protocols. HTTP, TCP, FTP, 
+Java is multithreated:
+    -- if we log out, the class is still ongoing.
+    -- connecting to the bigger process but executing its own function.
+Java is secure:
+    -- when you are execting code accross networks
+Garbage Collection:
+    -- When we talk about memory in detail.
+
+Java applications:
+    -- millions of java apps.
+
+Packages:
+com.ss.abc
+com.ss.abcd
+
+-- protected method can only be accessed by ingeriting from that class.
+-- public
+-- private
+-- void
+-- static: means on the class level. contained within the class. static is expensive.
+
+class constructor can be a method too.
+
+Overloading:
+
+    -- found in Polymorphism.
+
+Constructors:
+    -- 
+
+final:
+
+Making a variable 
+
+
+
+
+                
+
+
