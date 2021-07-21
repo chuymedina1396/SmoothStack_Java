@@ -18,5 +18,6 @@ public class AssignmentOne {
 
         System.out.println("And the result is ..." + " " + (a + b + c + d));
 
+        
 	}
 }
