@@ -28,17 +28,17 @@ public class AssignmentTwo {
 	}
     static void getMax(int[][] twoDArray) {
         int max = twoDArray[0][0];
-        // int [][] maxIndex = new int [0][0];
+        int maxIndex = 0;
         for (int j = 0; j < twoDArray.length; j++) {
             for (int i = 0; i < twoDArray[j].length; i++) {
                 if (twoDArray[j][i] > max) {
                     max = twoDArray[j][i];
-                    // maxIndex [0][0] = twoDArray[j][i];
                 }
+                maxIndex = twoDArray[j][i];
             }
         }
         System.out.println(max);
-        // System.out.println(maxIndex);
+        System.out.println(maxIndex);
     }
     
 }
