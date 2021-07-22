@@ -21,5 +21,3 @@ public class AssignmentOne {
 
 	}
 }
-
-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
