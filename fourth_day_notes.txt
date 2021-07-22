@@ -1,0 +1,126 @@
+Memory Management
+
+Stack and Heap with Java
+
+    At run-time, all those instances in java get stored in the Heap.
+
+    Diagram of Heap: screenshot.
+
+Garbage COllection:
+
+    -- CLEANING out objects in memory. Looks for how long it has been active for.
+
+    -- when it runs, keeps objects, runs a couple of cycles of garbage collection. After three cycles, a particular object will get deleted.
+    -- Major garbage collection: does not happen frequently.
+        -- will run onece or twice in 8 hours.
+        -- runs not so frequently becuase for example:
+            -- have memory in heap. large peice will be moved into Old memory.
+            -- when it runs on old memory, will run a few times before removing an object.
+            -- thats how objects swtich between edit memory or old memory.
+
+    Perm memory:
+        -- -xx:permSize
+        -- xx:MaxPermSize
+    Cant force garbage collection in java
+    System.gc() : as soon as you see the objects in my code, clean up.
+        -- prioritizing garbage collection.
+
+    HINTS:
+        SYSTEM.GC();
+        RUNTIME.GC()
+
+        JAVA.LANG.SYSTEM.COLLECTION;
+
+
+JAVA 8:
+    - biggest update.
+    -- oracle developed enterprise version of java.
+    
+    functional interfaces are in now:
+        -- any interface that has only one method in it, that is a functional interface
+        -- Lambda Functions
+            -- 
+
+    -- streams:
+        can use this on top of your collections.
+        Two types of streams:
+            -- parallel
+                -- breaks up the code. faster.
+            -- sequential
+
+
+
+DATE Time API
+    -- java.
+
+UNIT TESTING!!!! 
+    --J-Unit - framework for testing different test cases in Java only.
+
+    -- what is a unit?
+        -- every block or method of code is considered a unit.
+
+        -- exmaple:
+            -- Calculator - Addition/Multiplication
+
+            TDD - Test Driven development
+                -- 80% coverage for compiled code
+                -- 90% code coverage for scriping code
+
+            TFD- Test First developed
+
+            Before you write the code, you want to create a test case.
+
+            Acceptance Criteria
+
+            1> 2+2=4
+            2> 2+3 != 4
+
+            1> 2*2 =4
+            2> 2*3 != 4
+
+
+    Integration Testing is managed by QA teams.
+
+
+    public class Calculator {
+        public Integer addition(Integer a, Integer b) {
+            if(a==null || b==null){
+                return null
+            }
+            return a+b;
+        }
+        public Integer multiply(Integer a, Integer b){
+
+
+        }
+    }
+
+    @Test
+    public class CalculatorTest {
+        Calculator cal = new Calculator();
+        public void additionTest() {
+            assertEquals(new Integer(4), cal.addition(2,2));
+            assertTrue(IsNull<Integer>(cal.addition(null,2)));
+        }
+    }
+
+    how do you tell the compiled that this class is a test;
+
+Will have your IDE open for the evaluation:
+    -- will ask question from day 1 or day 5.
+    -- will ask questions about the concepts.
+        -- everything will be about what we have already covered.
+    -- might have to write some code.
+    
+
+
+
+
+
+
+
+
+
+
+
+
