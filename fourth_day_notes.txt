@@ -24,6 +24,7 @@ Garbage COllection:
     Cant force garbage collection in java
     System.gc() : as soon as you see the objects in my code, clean up.
         -- prioritizing garbage collection.
+        
 
     HINTS:
         SYSTEM.GC();
@@ -111,7 +112,7 @@ Will have your IDE open for the evaluation:
     -- will ask questions about the concepts.
         -- everything will be about what we have already covered.
     -- might have to write some code.
-    
+
 
 
 
