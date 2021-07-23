@@ -114,6 +114,49 @@ Will have your IDE open for the evaluation:
     -- might have to write some code.
 
 
+Multitasking in early computing
+
+    -- cpu executes os, and os swtiches tasks.
+    -- modern day cpus have features that make the switching between processes a lot faster.
+
+Multithreating
+    -- same concept as Multitasking
+    -- can have multiple threads in an application.
+    -- happens within an application.
+    -- can have multiple threads of execution inside of a application.
+        -- example
+    -- the way threads are executed are similar to how tasks are executed.
+
+    cpus nowadays have multiple cpus that can execute multiple process at the same time.
+
+
+    why multithreading?
+
+        -- can ahcieve better cpu utlization.
+        -- better IO utlization.
+            -- while one thread is using the cpu
+            -- another thread can be using the DISk/Network IO
+            -- higher application responsiveness
+            --
+
+        multithreating issues:
+        - shared mutable state issues
+            -- race conditions
+            --  invisible writes
+            -- congestion
+            -- deadlock
+            -- 
+        - no shared mutable state concurrency
+            -- spewrate state concurecny
+            -- functional parallellism
+            -- parallel pipelines
+
+
+
+
+
+
+
 
 
 
