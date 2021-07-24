@@ -61,7 +61,7 @@ public class JavaBasicsOne {
 		printRows(rows);
         // 2)
         printRowsDownUp(rows);
-        //3)
+        // 3)
         printPyramid(rows);
         // 4)
         printPyramidUpDown(rows);
