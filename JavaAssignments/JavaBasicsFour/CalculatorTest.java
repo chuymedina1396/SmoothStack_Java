@@ -10,8 +10,8 @@ public class CalculatorTest {
 	
 	@Test
 	public void additionTest() {
-		assertEquals(new Integer(4), cal.addition(2, 2));
-		assertNotEquals(new Integer(4), cal.addition(2, 3));
+		assertEquals(new valueOf(4), cal.addition(2, 2));
+		assertNotEquals(new valueOf(4), cal.addition(2, 3));
 		assertNull(cal.addition(null, 2));
 		assertNull(cal.addition(2, null));
 	}
