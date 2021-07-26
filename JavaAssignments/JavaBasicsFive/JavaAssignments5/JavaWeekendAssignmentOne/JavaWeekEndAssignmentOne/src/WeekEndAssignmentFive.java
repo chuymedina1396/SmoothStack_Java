@@ -10,8 +10,12 @@
 public class WeekEndAssignmentFive {
 
     public static void main(String[] args){
-        int [] nums = {2,3,6};
-        groupSumClump(0, nums, 10);
+        int [] nums = {2,4,8};
+        int [] numsTwo = {1,2,4,8,1};
+        int [] numsThree = {2,4,4,8};
+        System.out.println(groupSumClump(0, nums, 10));
+        System.out.println(groupSumClump(0, numsTwo, 14));
+        System.out.println(groupSumClump(0, numsThree, 14));
         
     }
     public static boolean groupSumClump(int start, int[] nums, int target) {
