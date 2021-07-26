@@ -24,7 +24,7 @@ Garbage COllection:
     Cant force garbage collection in java
     System.gc() : as soon as you see the objects in my code, clean up.
         -- prioritizing garbage collection.
-        
+
 
     HINTS:
         SYSTEM.GC();
@@ -105,7 +105,7 @@ UNIT TESTING!!!!
         }
     }
 
-    how do you tell the compiled that this class is a test;
+    how do you tell the compiler that this class is a test;
 
 Will have your IDE open for the evaluation:
     -- will ask question from day 1 or day 5.
@@ -135,14 +135,14 @@ Multithreating
         -- can ahcieve better cpu utlization.
         -- better IO utlization.
             -- while one thread is using the cpu
-            -- another thread can be using the DISk/Network IO
+            -- another thread can be using the DISk/Network IO, etc
             -- higher application responsiveness
             --
 
         multithreating issues:
         - shared mutable state issues
             -- race conditions
-            --  invisible writes
+            -- invisible writes
             -- congestion
             -- deadlock
             -- 
