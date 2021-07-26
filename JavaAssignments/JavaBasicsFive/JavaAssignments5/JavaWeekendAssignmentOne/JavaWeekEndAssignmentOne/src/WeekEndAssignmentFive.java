@@ -10,8 +10,8 @@
 public class WeekEndAssignmentFive {
 
     public static void main(String[] args){
-        int [] myArr = {1, [2,4,8], 10 };
-        groupSumClump(myArr);
+        int [] nums = {2,3,6};
+        groupSumClump(0, nums, 10);
         
     }
     public static boolean groupSumClump(int start, int[] nums, int target) {
