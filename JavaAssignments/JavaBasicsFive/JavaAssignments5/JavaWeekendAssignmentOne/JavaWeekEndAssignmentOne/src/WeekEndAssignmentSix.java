@@ -31,12 +31,15 @@ public class WeekEndAssignmentSix {
     public static void main(String[] args){};
 	private static Connection conn = null;
 	
-	private static WeekEndAssignmentSix instance = null;
+	private static volatile WeekEndAssignmentSix instance = null;
 	
-	public static synchronized WeekEndAssignmentSix getInstance() {
-        if(instance == null)
-        {
-            instance = new WeekEndAssignmentSix();
+	public WeekEndAssignmentSix getInstance() {
+        if(instance == null){
+            synchronized(this){
+                if(instance == null){
+                    instance = new WeekEndAssignmentSix(); 
+                }
+            }
         }
         return instance;     
     }
