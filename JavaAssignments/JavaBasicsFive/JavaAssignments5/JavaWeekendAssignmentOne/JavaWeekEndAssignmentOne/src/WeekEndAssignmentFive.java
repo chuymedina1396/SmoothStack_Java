@@ -5,4 +5,15 @@
 // groupSumClump(0, [1, 2, 4, 8, 1], 14) → true
 // groupSumClump(0, [2, 4, 4, 8], 14) → false
 
+public class WeekEndAssignmentFive {
+
+    public static void main(String[] args){
+        int [] myArr = {1,2,3,4,5};
+        
+        System.out.println("Hello from main");
+        
+    }
+
+}
+
 
