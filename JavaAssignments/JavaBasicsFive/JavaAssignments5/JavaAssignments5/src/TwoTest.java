@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TwoTest {
     public static void main(String[] args){
         setUp();
-        twTest();
+        twoTest();
     }
 
     @Before

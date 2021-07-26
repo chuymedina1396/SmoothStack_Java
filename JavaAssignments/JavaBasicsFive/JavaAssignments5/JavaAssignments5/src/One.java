@@ -43,7 +43,6 @@ public class One {
                  })
                  .forEach((s) -> {
                      System.out.println(s);
-                });
-        // Same, but using Array generics           
+                });          
     } 
 }
