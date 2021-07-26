@@ -34,6 +34,7 @@ public class WeekEndAssignmentSix {
 	private static volatile WeekEndAssignmentSix instance = null;
 	
 	public WeekEndAssignmentSix getInstance() {
+        // implemented double check locking
         if(instance == null){
             synchronized(this){
                 if(instance == null){
