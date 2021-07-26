@@ -88,7 +88,6 @@ public class WeekEndAssignmentOne {
             palindrome = palindrome / 10;
         }
 
-        // The integer is palindrome if integer and reverse are equal
-        return num == reverse; // Improved by Peter Lawrey
+        return num == reverse;
     }
 }
