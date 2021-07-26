@@ -1,3 +1,4 @@
+package JavaBasicsFour.src;
 // Created my Singleton called AssignmentOne.
 public class AssignmentOne {
     //volatile tells jvm to not re-order instructions at line ten. Without this, a second thread can confuse the state OF instance and can mistakenly just return instance.

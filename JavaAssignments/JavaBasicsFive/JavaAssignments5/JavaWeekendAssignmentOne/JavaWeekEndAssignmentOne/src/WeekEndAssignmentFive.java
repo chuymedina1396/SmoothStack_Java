@@ -5,12 +5,17 @@
 // groupSumClump(0, [1, 2, 4, 8, 1], 14) → true
 // groupSumClump(0, [2, 4, 4, 8], 14) → false
 
+// must find the combination of ints that sum up to the true value
+
 public class WeekEndAssignmentFive {
 
     public static void main(String[] args){
-        int [] myArr = {1,2,3,4,5};
+        int [] myArr = {1,2,2,2,5,2};
+        groupSumClump(myArr);
         
-        System.out.println("Hello from main");
+    }
+
+    public static void groupSumClump(int [] arr){
         
     }
 

@@ -7,7 +7,6 @@
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.*;
 
 public class WeekEndAssignmentTwo {
     public static void main(String[] args){
@@ -25,9 +24,10 @@ public class WeekEndAssignmentTwo {
         returnListOfInts(thirdList);
         
     }
-    public static void returnListOfInts(List<Integer> arr){
+    public static List<Integer> returnListOfInts(List<Integer> arr){
         arr.replaceAll(n -> n % 10);
         System.out.println(arr);
+        return arr;
     }
 
 }

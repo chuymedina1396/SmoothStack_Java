@@ -1,3 +1,4 @@
+package JavaBasicsFour.src;
 public class AssignmentTwo {
  
     //Simple declaration of 2 strings and store them in their memory/variable.

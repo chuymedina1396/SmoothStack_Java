@@ -6,25 +6,29 @@ public class One {
     public static void main(String[] args){
         //1 
         sortArray();
-
     }
 
     public static void sortArray(){
 
         String[] strings = {"Random","Words", "In", "Array", "Hello"};
-
         // Sorting array of strings from shortest to longest
-            Arrays.sort(strings, (a, b) -> a.length() - b.length());
+            Arrays.sort(strings, (a, b) -> {
+                return a.length() - b.length();
+            });
             Stream.of(Arrays.asList(strings))
                 .forEach(System.out::println); //using method references for syntactic sugar.
 
         // Sorting array of strings from longest to shortest
-            Arrays.sort(strings, (a, b) -> b.length() - a.length());
+            Arrays.sort(strings, (a, b) -> {
+                return b.length() - a.length();
+            });
             Stream.of(Arrays.asList(strings))
                 .forEach(System.out::println); 
 
         // Sorting array alphabetically by the first character only
-            Arrays.sort(strings, (a, b) -> a.charAt(0) - b.charAt(0));
+            Arrays.sort(strings, (a, b) -> {
+                return a.charAt(0) - b.charAt(0);
+            });
             Stream.of(Arrays.asList(strings))
                 .forEach(System.out::println);
 
@@ -40,13 +44,6 @@ public class One {
                  .forEach((s) -> {
                      System.out.println(s);
                 });
-        // Same, but using Array generics
-        
-
-
-
-                 
-                 
-    }
-    
+        // Same, but using Array generics           
+    } 
 }

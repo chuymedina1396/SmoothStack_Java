@@ -19,8 +19,9 @@ public class WeekEndAssignmentThree {
         returnListMultiTwo(myList);
         returnListMultiTwo(myListTwo);
     }
-    public static void returnListMultiTwo(List<Integer> nums) {
+    public static List<Integer> returnListMultiTwo(List<Integer> nums) {
         nums.replaceAll(n -> n * 2);
         System.out.println(nums);
+        return nums;
     }
 }

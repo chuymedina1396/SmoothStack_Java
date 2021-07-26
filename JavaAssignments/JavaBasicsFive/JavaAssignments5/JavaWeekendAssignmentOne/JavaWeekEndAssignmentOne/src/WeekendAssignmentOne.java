@@ -39,6 +39,7 @@ import java.util.stream.*;
 import java.util.List;
 import java.util.function.Consumer;
 
+
 public class WeekendAssignmentOne {
     public static void main(String[] args){
         isOdd(4);
@@ -46,8 +47,9 @@ public class WeekendAssignmentOne {
         // isPalendrone();
 
     }
-    public static void isOdd(int num){
-        () -> {
+    public static Integer isOdd(Integer num){
+        // target type needs to be a functional interface. Still new to java(3 weeks about)
+         (num) -> {
             if(num % 2 == 0){
                 System.out.println("EVEN");
             } 

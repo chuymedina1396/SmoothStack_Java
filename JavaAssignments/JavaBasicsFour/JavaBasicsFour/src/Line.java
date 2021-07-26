@@ -1,3 +1,4 @@
+package JavaBasicsFour.src;
 public class Line {
     // Construct a line objet
     public Line(double x0, double y0, double x1, double y1){

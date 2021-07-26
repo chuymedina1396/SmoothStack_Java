@@ -2,7 +2,6 @@
 
 import java.util.List;
 import java.util.Arrays;
-import java.util.stream.*;
 
 public class Three {
     public static void main(String[] args){
