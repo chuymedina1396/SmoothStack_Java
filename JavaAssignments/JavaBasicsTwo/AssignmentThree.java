@@ -13,13 +13,12 @@ interface Shape{
 
 public class Rectangle implements Shape {
     public static void main(String[] args){
-        
         @Override
         Reactange rectangle = new Reactangle();
-        reactangle.display();
         rectangle.calculateArea();
-
+        reactangle.display();
     }
+
 }
 public class Circle implements Shape {
     public static void main(String[] args){
@@ -29,11 +28,12 @@ public class Circle implements Shape {
         circle.display();
     }
 }
+
 public class Triangle implements Shape {
     public static void main(String[] args){
         @Override
         Triangle triangle = new Triangle();
-        triangle.display();
         triangle.calculateArea();
+        triangle.display();
     }
 }
