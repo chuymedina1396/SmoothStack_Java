@@ -25,6 +25,7 @@ public class WeekEndAssignmentTwo {
         
     }
     public static List<Integer> returnListOfInts(List<Integer> arr){
+        // replaceAll method returns a new string with all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match. 
         arr.replaceAll(n -> n % 10);
         System.out.println(arr);
         return arr;

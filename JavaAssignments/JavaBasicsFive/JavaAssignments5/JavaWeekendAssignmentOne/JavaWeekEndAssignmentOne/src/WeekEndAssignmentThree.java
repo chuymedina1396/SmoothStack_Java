@@ -20,6 +20,7 @@ public class WeekEndAssignmentThree {
         returnListMultiTwo(myListTwo);
     }
     public static List<Integer> returnListMultiTwo(List<Integer> nums) {
+        // once again using replaceAll to multiple every index in the iteration by 2.
         nums.replaceAll(n -> n * 2);
         System.out.println(nums);
         return nums;

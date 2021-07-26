@@ -10,13 +10,22 @@
 public class WeekEndAssignmentFive {
 
     public static void main(String[] args){
-        int [] myArr = {1,2,2,2,5,2};
+        int [] myArr = {1, [2,4,8], 10 };
         groupSumClump(myArr);
         
     }
+    public static boolean groupSumClump(int start, int[] nums, int target) {
+        if(target == 0){
+  	        return true;
+        }
+        if(start == nums.length){
+            return false;
+        }
 
-    public static void groupSumClump(int [] arr){
-        
+        if(groupSumClump(start + 1, nums, target - nums[start])){
+            return true;
+        }
+        return groupSumClump(start + 1, nums, target);
     }
 
 }
