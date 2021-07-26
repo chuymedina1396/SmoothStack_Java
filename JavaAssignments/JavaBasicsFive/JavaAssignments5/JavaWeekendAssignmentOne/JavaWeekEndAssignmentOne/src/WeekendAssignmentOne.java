@@ -37,32 +37,58 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.stream.*;
 import java.util.List;
-import java.util.function.Consumer;
 
 
-public class WeekendAssignmentOne {
+public class WeekEndAssignmentOne {
     public static void main(String[] args){
-        isOdd(4);
-        // primeOrComposite();
-        // isPalendrone();
+        Integer i = 4;
+        isOdd(i);
+        primeOrComposite(i);
+        isPalendrone();
 
     }
-    public static Integer isOdd(Integer num){
-        // target type needs to be a functional interface. Still new to java(3 weeks about)
-         (num) -> {
-            if(num % 2 == 0){
-                System.out.println("EVEN");
-            } 
-            else if(num % 2 != 0){
-                System.out.println("ODD");
+    public static boolean isOdd(int num) {
+        boolean isOdd = true;
+        if(num % 2 == 0){
+            isOdd=false;
+            System.out.println("EVEN");
+            return isOdd;
+        } 
+        else if(num % 2 != 0){
+            isOdd=true;
+            System.out.println("ODD");
+            return isOdd;
+        }
+        return isOdd;
+    }
+    public static boolean primeOrComposite(int num) {
+        boolean isPrime=true;
+        //Has to be i < n instead of i <= n, every number can be divided by 1 so...
+        for (int i=2; i < num; i++) { 
+            if (num%i==0) {
+               isPrime=false;
+                break;
             }
-        };
-    }
-    public static void primeOrComposite(){
+        }
+        if(isPrime) {
+           System.out.println("its a prime number");
+           return true; 
+        } 
+        System.out.println("its a composite number");
+        return false;
+   }
+   public static boolean isPalindrome(int num) {
+       int palindrome = num;
+       int reverse = 0;
 
-        
-    }
-    public static void isPalendrone(){
-        System.out.println("Hello from isPalendrone");
+        // Compute the reverse
+        while (palindrome != 0) {
+            int remainder = palindrome % 10;
+            reverse = reverse * 10 + remainder;
+            palindrome = palindrome / 10;
+        }
+
+        // The integer is palindrome if integer and reverse are equal
+        return num == reverse; // Improved by Peter Lawrey
     }
 }

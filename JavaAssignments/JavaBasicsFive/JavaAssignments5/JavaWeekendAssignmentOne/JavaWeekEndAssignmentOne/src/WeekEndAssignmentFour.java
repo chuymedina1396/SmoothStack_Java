@@ -17,10 +17,7 @@ public class WeekEndAssignmentFour {
         
     }
 
-    public static List<String> noX(List<String> myList) {
-        myList.replaceAll(s -> func.apply(s));
-        System.out.print(myList);
-
+    public List<String> noX(List<String> myList) {
         final Function<String, String> func = s -> {
             if (s.equals("")){
                 return s;
@@ -32,5 +29,8 @@ public class WeekEndAssignmentFour {
                 return s.charAt(0) + func.apply(s.substring(1));
             } 
         };
+        myList.replaceAll(s -> func.apply(s));
+        System.out.print(myList);
+
     }
 }

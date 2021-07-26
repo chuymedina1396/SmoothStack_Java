@@ -5,6 +5,7 @@ import org.junit.runner.notification.Failure;
 
 public class OneTest {
     public static void main(String[] args){
+        
         Result result = JUnitCore.runClasses(One.class);
 
         for (Failure failure : result.getFailures()){
