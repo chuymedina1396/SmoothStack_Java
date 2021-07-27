@@ -30,6 +30,10 @@ import java.sql.Statement;
 public class WeekEndAssignmentSix {
     public static void main(String[] args){};
 	private static Connection conn = null;
+    
+    private WeekEndAssignmentSix(){
+
+    }
 	
 	private static volatile WeekEndAssignmentSix instance = null;
 	

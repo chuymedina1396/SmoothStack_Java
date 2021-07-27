@@ -13,7 +13,6 @@ public class TwoTest {
         Two two = new Two();
     }
 
-	
 	@Test
     public static void twoTest() {
         assertEquals(two.returnCommaSeperatedValue(3,44);
