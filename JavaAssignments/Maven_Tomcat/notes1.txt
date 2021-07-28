@@ -1,0 +1,31 @@
+COntent
+
+    - Tomcat Server
+    - J2EE
+    - Servlets
+    Jar vs WAR vs 
+    - Maven- package manager for java
+
+    APACHE Tomcat   
+
+    -- When Java began supporting http protcol.
+        - This is why Servlets were created.
+        - Spring is built on top of servlets.
+        - Must have understaind of what a servlet is.
+            - need servelt containers to run a java app on the web.
+            - the tomcat server is something we can drop our java app into. 
+                - tomcat server is a servlet container.
+                - only servlet container. can only run jar and war files.
+                - backbone for the java world is servlets.
+                - main building blocks for web apps with java is servlets.
+
+            
+    -- JaackR java??
+
+    web.xml
+        -- told tomcat server, hey I am a web app. If anyone wants to reach a route, i have a servlet for into.
+        -- front contoller design pattern.
+        
+
+
+    
