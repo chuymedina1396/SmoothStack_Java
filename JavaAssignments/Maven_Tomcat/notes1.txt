@@ -28,6 +28,11 @@ COntent
 
 
 Design patterns:
+
+    DAO:
+        -- KEEP PERSISTENCE LOGIC IN DAO LAYER
+        -- KEEP BUSINESS LOGIC IN SERVICE LAYER.
+        
     
         
 
