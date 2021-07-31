@@ -25,6 +25,10 @@ COntent
     web.xml
         -- told tomcat server, hey I am a web app. If anyone wants to reach a route, i have a servlet for into.
         -- front contoller design pattern.
+
+
+Design patterns:
+    
         
 
 
