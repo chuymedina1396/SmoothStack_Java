@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.utopia.AppTest" time="0.027" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.utopia.AppTest" time="0.024" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="16"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/test-classes:/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/classes:/Users/chuy/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/chuy/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="java.class.path" value="/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/test-classes:/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/classes:/Users/chuy/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/chuy/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/chuy/.m2/repository/mysql/mysql-connector-java/8.0.17/mysql-connector-java-8.0.17.jar:/Users/chuy/.m2/repository/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar:"/>
     <property name="java.vm.vendor" value="Homebrew"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
@@ -12,10 +12,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/16.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/surefire/surefirebooter9472273213848117414.jar /Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/surefire 2021-07-31T17-05-42_118-jvmRun1 surefire1796753207540896137tmp surefire_08817471445199181210tmp"/>
+    <property name="sun.java.command" value="/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/surefire/surefirebooter2065108422041780159.jar /Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/surefire 2021-08-01T15-03-26_513-jvmRun1 surefire15442746478265777106tmp surefire_07350467699762403392tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/test-classes:/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/classes:/Users/chuy/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/chuy/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/test-classes:/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/classes:/Users/chuy/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/chuy/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/chuy/.m2/repository/mysql/mysql-connector-java/8.0.17/mysql-connector-java-8.0.17.jar:/Users/chuy/.m2/repository/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/chuy"/>
     <property name="user.language" value="en"/>
@@ -28,7 +28,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/surefire/surefirebooter9472273213848117414.jar"/>
+    <property name="surefire.real.class.path" value="/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/utopia_final/target/surefire/surefirebooter2065108422041780159.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="16.0.1+0"/>
