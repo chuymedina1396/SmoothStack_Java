@@ -32,7 +32,7 @@ public class AssignmentOne {
 
     public static void main(String[] args) {
         // Using an ABSOLUTE PATH
-        String directory = "C:\\Users\\chuym\\Desktop\\Projects\\java\\SmoothStack_java";
+        String directory = "/Users/chuy/Desktop/projects/smoothstack/JavaAssignments";
                   
         // Instantiating a new File object and passing the absolute path variable to the File object.
         File currentDir = new File(directory);

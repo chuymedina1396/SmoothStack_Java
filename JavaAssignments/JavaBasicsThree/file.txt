@@ -1,1 +1,1 @@
-Appending this text to the file without overriding occuring.Appending this text to the file without overriding occuring.
+Filter me for chars!Appending this text to the file without overriding occuring.

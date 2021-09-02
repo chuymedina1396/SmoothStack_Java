@@ -26,7 +26,7 @@ public class AssignmentThree {
         //Try catch block
         try {
 
-            //declared a counter variables to keep track of how many times a char occurs in the file
+            //declared a counter variable to keep track of how many times a char occurs in the file
             int counter = 0;
             // Declared my starting point variable for looping.
             int i;
