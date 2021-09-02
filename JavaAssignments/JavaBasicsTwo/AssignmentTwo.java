@@ -7,22 +7,6 @@ public class AssignmentTwo {
         };
         //Executes the method for finding max value in 2d array
         getMax(twoDArray);
-        // System.out.println(twoDArray[0][0]);
-
-        // System.out.println("----------------");
-
-        // for( int i =0; i < 3; i++){
-        //     System.out.println(twoDArray[i][i]);
-        // }
-
-        // System.out.println("----------------");
-
-        // for( int i = 0; i < 3; i++){
-        //     for(int j = 0; j < 3; j++){
-        //         System.out.println(twoDArray[i][j]);
-        //     }
-        // }
-
 	}
     static void getMax(int[][] twoDArray) {
         int max = twoDArray[0][0];
