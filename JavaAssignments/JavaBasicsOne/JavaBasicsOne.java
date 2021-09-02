@@ -12,6 +12,7 @@ public class JavaBasicsOne {
                 System.out.print("* ");
             }
             System.out.println();
+            
         }
     }
     //Second Pattern:
