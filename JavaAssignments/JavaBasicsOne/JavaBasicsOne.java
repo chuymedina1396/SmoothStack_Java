@@ -52,7 +52,7 @@ public class JavaBasicsOne {
             System.out.println();
         }
     }
-
+    // Getting the dots right was tricky, so I just used stars.
     //Third Pattern:
     static void printPyramid(int rows){
         for (int i=1; i <= rows; i++) {
