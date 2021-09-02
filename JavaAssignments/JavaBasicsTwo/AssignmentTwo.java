@@ -7,8 +7,6 @@ public class AssignmentTwo {
         };
         //Executes the method for finding max value in 2d array
         getMax(twoDArray);
-
-
         // System.out.println(twoDArray[0][0]);
 
         // System.out.println("----------------");
