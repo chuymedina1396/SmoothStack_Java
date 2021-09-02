@@ -11,7 +11,7 @@ public class JavaBasicsOne2 {
 		// Scanner for getting user input
 		Scanner in = new Scanner(System.in);
 
-		// Creating a new random instance
+		// Creating a new random instance`
 		Random rand = new Random();
 
 		boolean correct = false;

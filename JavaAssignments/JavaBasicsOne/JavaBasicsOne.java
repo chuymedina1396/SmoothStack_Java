@@ -56,7 +56,7 @@ public class JavaBasicsOne {
     // Main method(entry point to any java program.)
 	public static void main(String args[])
 	{
-		int rows = 4;
+		int rows = 3;
         // 1)
 		printRows(rows);
         // 2)
