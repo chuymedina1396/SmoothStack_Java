@@ -24,6 +24,7 @@ interface WaterBottleInterface {
 // implments keyword delcares the class to us the WaterBottleInterface
 public class InterfaceExample implements WaterBottleInterface{
     public static void main(String[] args){
+        
         // Everything in the interface has to be in the class.
             // So you have to use the color varbiable and the fillUp method below cause it's in the interface.
         System.out.println(color);
