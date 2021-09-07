@@ -1,7 +1,6 @@
 import java.util.Scanner;
 public class AssignmentOne {
-    public static void main(String args[])
-	{
+    public static void main(String args[]) {
         // NOTE: Not DRY at all :( lol 
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter a number:");
@@ -15,9 +14,8 @@ public class AssignmentOne {
 
         System.out.println("Enter one more number:");
         int d = scan.nextInt();
+        scan.close();
 
         System.out.println("And the result is ..." + " " + (a + b + c + d));
-
-
 	}
 }
