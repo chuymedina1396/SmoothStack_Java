@@ -1,7 +1,13 @@
-package JavaBasicsFour.src;
+package com.ss.JavaBasicsFour;
 public class AssignmentTwo {
+    public static void main(String [] args){
+        AssignmentTwo deadLock = new AssignmentTwo();
+        deadLock.threadOne.start();
+        deadLock.threadTwo.start();
+    }
  
     //Simple declaration of 2 strings and store them in their memory/variable.
+
     String stringOne = "Java";
     String stringTwo = "Linux";
 
@@ -30,10 +36,4 @@ public class AssignmentTwo {
             }
         }
     };
-     
-    public static void main(String [] args){
-        AssignmentTwo deadLock = new AssignmentTwo();
-        deadLock.threadOne.start();
-        deadLock.threadTwo.start();
-    }
 }

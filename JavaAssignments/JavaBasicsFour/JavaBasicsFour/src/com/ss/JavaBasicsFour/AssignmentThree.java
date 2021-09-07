@@ -1,4 +1,4 @@
-package JavaBasicsFour.src;
+package com.ss.JavaBasicsFour;
 public class AssignmentThree {
     int num;
     public void put(int num){

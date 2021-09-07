@@ -1,4 +1,4 @@
-package JavaBasicsFour.src;
+package com.ss.JavaBasicsFour;
 
 
 public class Calculator {

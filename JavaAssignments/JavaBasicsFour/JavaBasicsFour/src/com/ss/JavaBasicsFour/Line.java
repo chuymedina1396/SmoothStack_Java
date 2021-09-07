@@ -1,4 +1,4 @@
-package JavaBasicsFour.src;
+package com.ss.JavaBasicsFour;
 public class Line {
     // Construct a line objet
     public Line(double x0, double y0, double x1, double y1){
@@ -21,7 +21,7 @@ public class Line {
     }
     // return whether a line is parallel to another
     public boolean parallelTo(Line l) {// if the difference between the slopes is very small, consider them parallel
-        if(Math.abs(getSlope( ) - l.getSlope( )) < .0001) {
+        if(Math.abs(getSlope() - l.getSlope()) < .0001) {
             return true;    
         } else {
             return false;    
