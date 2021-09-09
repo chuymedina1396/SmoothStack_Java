@@ -11,16 +11,16 @@ public class CalculatorTest {
 	
 	@Test
 	public void additionTest() {
-		assertEquals(new valueOf(4), cal.addition(2, 2));
-		assertNotEquals(new valueOf(4), cal.addition(2, 3));
+		assertEquals(4, cal.addition(2, 2), .0001);
+		assertNotEquals(4, cal.addition(2, 3), .0001);
 		assertNull(cal.addition(null, 2));
 		assertNull(cal.addition(2, null));
 	}
 	
 	@Test
 	public void multiplyTest() {
-		assertEquals(new Integer(4), cal.multiply(2, 2));
-		assertNotEquals(new Integer(4), cal.multiply(2, 3));
+		assertEquals(4, cal.multiply(2, 2), .0001);
+		assertNotEquals(4, cal.multiply(2, 3), .0001);
 		assertNull(cal.multiply(null, 2));
 		assertNull(cal.multiply(2, null));
 	}

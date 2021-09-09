@@ -21,7 +21,7 @@ interface WaterBottleInterface {
 
 }
 
-// implments keyword delcares the class to us the WaterBottleInterface
+// implements keyword delcares the class to us the WaterBottleInterface
 public class InterfaceExample implements WaterBottleInterface{
     public static void main(String[] args){
         
