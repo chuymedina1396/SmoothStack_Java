@@ -44,6 +44,32 @@ GROUP BY tbl_borrower.cardNo HAVING COUNT(*) > 5
 SELECT title, noOfCopies FROM ( ( (tbl_author NATURAL JOIN tbl_book) NATURAL JOIN tbl_book_copies) NATURAL JOIN tbl_library_branch) WHERE authorName = 'Stephen King' and branchName = 'Central'
 
 
+-- This query will get the authorId for author "Stephen King" which is 1.
+select authorId from tbl_author where authorName="Stephen King";
+
+-- This query will get the books authored by Stephen King.
+select * from tbl_book where authId=1; 
+
+-- This query will get the branch Id for "Central" which is 2
+select branchId from tbl_library_branch where branchName="Central";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
