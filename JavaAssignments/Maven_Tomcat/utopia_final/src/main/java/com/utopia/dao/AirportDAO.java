@@ -12,7 +12,10 @@ public class AirportDAO extends BaseDAO<Airport> {
         super(conn);
     }
     public void addAirport(Airport airport){
-        save("INSERT into airport VALUES(?,?)", new Object[] { airport.getAirportCode(), airport.getCity() } );
+        save("INSERT into airport VALUES(?,?)", new Object[] {
+             airport.getAirportCode(), 
+             airport.getCity() 
+            });
 
     }
     public void updateAirport(Airport airport){

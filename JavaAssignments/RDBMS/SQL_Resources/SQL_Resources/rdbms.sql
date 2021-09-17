@@ -41,7 +41,7 @@ GROUP BY tbl_borrower.cardNo HAVING COUNT(*) > 5
 
 	-- Natural Join joins two tables based on same attribute name and datatypes. The resulting table will contain all the attributes of both the table but keep only one copy of each common column.
 	
-SELECT title, noOfCopies FROM ( ( (tbl_author NATURAL JOIN tbl_book) NATURAL JOIN tbl_book_copies) NATURAL JOIN tbl_library_branch) WHERE authorName = 'Stephen King' and branchName = 'Central'
+SELECT title, noOfCopies FROM ( ( (tbl_author JOIN tbl_book) Inner JOIN tbl_book_copies) JOIN tbl_library_branch) WHERE authorName = 'Stephen King' and branchName = 'Central';
 
 
 -- This query will get the authorId for author "Stephen King" which is 1.

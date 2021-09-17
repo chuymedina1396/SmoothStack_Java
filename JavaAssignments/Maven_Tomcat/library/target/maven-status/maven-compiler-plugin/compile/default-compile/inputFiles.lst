@@ -1,0 +1,16 @@
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/BookLoans.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/Author.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/dao/BaseDAO.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/Borrower.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/Publisher.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/Genre.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/service/LibrarianService.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/BookCopies.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/service/ConnectionUtil.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/service/App.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/LibraryBranch.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/BookGenres.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/BookAuthors.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/service/AdminService.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/dao/LibraryBranchDAO.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/Book.java

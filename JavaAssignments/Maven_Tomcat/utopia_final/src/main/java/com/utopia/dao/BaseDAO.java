@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.sql.DriverManager;
 
 // A Generic Version of the Box Class
 
@@ -67,6 +68,7 @@ public abstract class BaseDAO<T> {
 		return extractData(rs);
 
 	}
+
 	abstract public List<T> extractData(ResultSet rs) throws ClassNotFoundException, SQLException;
 }
 

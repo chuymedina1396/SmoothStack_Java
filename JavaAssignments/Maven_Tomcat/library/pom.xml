@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.utopia</groupId>
-  <artifactId>utopia_final</artifactId>
+  <groupId>com.ss.library</groupId>
+  <artifactId>library</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>utopia_final</name>
-  <!-- FIXME change it to the projecte's website -->
+  <name>library</name>
+  <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
@@ -25,13 +25,6 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-  <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.17</version>
-  </dependency>
-
   </dependencies>
 
   <build>
@@ -75,17 +68,6 @@
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
-        </plugin>
-        <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>1.2.1</version>
-            <configuration>
-                <mainClass>com.utopia.jdbc.ReadRoutes</mainClass>
-                <arguments>
-                    <argument>argument1</argument>
-                </arguments>
-            </configuration>
         </plugin>
       </plugins>
     </pluginManagement>

@@ -2,8 +2,6 @@ package com.utopia;
 
 import java.util.Scanner;
 
-import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner scan = new Scanner(System.in);
@@ -21,7 +19,5 @@ public class App {
         if(input == "3"){
             System.out.println("You have chosen Traveler and will now be directed to the Traveler Menu");
         }
-
-
     }
 }
