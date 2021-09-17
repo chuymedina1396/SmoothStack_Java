@@ -41,13 +41,13 @@ public abstract class BaseDAO<T> {
         return null;
     }
 
-    public List<T> read(String sql) throws ClassNotFoundException, SQLException{
+    public List<T> read(String sql, Object[] vals ) throws ClassNotFoundException, SQLException{
         PreparedStatement pstmt = conn.prepareStatement(sql);
-        // int count = 1;
-        // for(Object o : vals){
-        //     pstmt.setObject(count,o);
-        //     count++;
-        // }
+        int count = 1;
+        for(Object o : vals){
+            pstmt.setObject(count,o);
+            count++;
+        }
         ResultSet rs = pstmt.executeQuery();
         return extractData(rs);
     }
