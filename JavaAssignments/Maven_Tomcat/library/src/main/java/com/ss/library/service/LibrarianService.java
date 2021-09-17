@@ -1,4 +1,5 @@
 package com.ss.library.service;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -6,6 +7,9 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 import com.ss.library.models.Book;
@@ -33,35 +37,36 @@ public class LibrarianService {
         Integer input = scan.nextInt();
         if(input == 1){
             // This is redundant. I want to use my DAO, but how???
-            System.out.println("Reading All Flights from Flight Table.");
-            Connection conn = null;
-            PreparedStatement pstmt = null;
-            try {
-                conn = util.getConnection();
-                pstmt = conn.prepareStatement("SELECT * FROM tbl_library_branch");
-                ResultSet rs = pstmt.executeQuery();
-                while (rs.next()) {
-                    Integer ids = rs.getInt("branchId");
-                    String names = rs.getString("branchName");
-                    String addresses = rs.getString("branchAddress");
-                    System.out.println(ids);
-                    System.out.println(names);
-                    System.out.println(addresses);
-                }
-                conn.commit();
-            }
-            catch (ClassNotFoundException | SQLException e) {
-                e.printStackTrace();
-                conn.rollback();
-            }
-            finally {
-                if (pstmt != null) { 
-                    pstmt.close(); 
-                }
-                if(conn!=null) {
-                    conn.close();
-                }
-            }
+            System.out.println("Choose a Library Branch you manage by selecting the a number/id of the branch!");
+            readLibraryBranches();
+            // Connection conn = null;
+            // PreparedStatement pstmt = null;
+            // try {
+            //     conn = util.getConnection();
+            //     pstmt = conn.prepareStatement("SELECT * FROM tbl_library_branch");
+            //     ResultSet rs = pstmt.executeQuery();
+            //     while (rs.next()) {
+            //         Integer ids = rs.getInt("branchId");
+            //         String names = rs.getString("branchName");
+            //         String addresses = rs.getString("branchAddress");
+            //         System.out.println(ids);
+            //         System.out.println(names);
+            //         System.out.println(addresses);
+            //     }
+            //     conn.commit();
+            // }
+            // catch (ClassNotFoundException | SQLException e) {
+            //     e.printStackTrace();
+            //     conn.rollback();
+            // }
+            // finally {
+            //     if (pstmt != null) { 
+            //         pstmt.close(); 
+            //     }
+            //     if(conn!=null) {
+            //         conn.close();
+            //     }
+            // }
         }
         if(input == 2){
             App.mainMenu();
@@ -70,28 +75,29 @@ public class LibrarianService {
     }
 
     // Transaction
-    public String readLibraryBranches(LibraryBranch libraryBranch) throws ClassNotFoundException, SQLException {
+    public void readLibraryBranches() throws ClassNotFoundException, SQLException {
         Connection conn = null;
-        try{
+        List<LibraryBranch> branches = new ArrayList<LibraryBranch>();
+        try {
             conn = util.getConnection();
-            System.out.println(conn);
             LibraryBranchDAO libraryDAO = new LibraryBranchDAO(conn);
-            // How do I invoke this?
-
+            branches = libraryDAO.readAllLibraryBranches();
+            for (LibraryBranch branch : branches){  // Which you iterate 
+                System.out.println(branch.getBranchId() + ") " + branch.getBranchName());
+          }
             conn.commit();
-            return "Got all Library Branches";
+            
         }
         catch(ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             conn.rollback();
-            return "Could not retrieve library branches";
         } finally {
             if(conn != null){
                 conn.close();
             }
         }
     }
-
+    
     public void branchOptions() throws ClassNotFoundException, SQLException{
             Scanner scan = new Scanner(System.in);
             Integer input = scan.nextInt();

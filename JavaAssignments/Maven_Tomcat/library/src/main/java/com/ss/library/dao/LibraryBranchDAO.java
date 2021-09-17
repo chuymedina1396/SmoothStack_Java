@@ -32,13 +32,13 @@ public class LibraryBranchDAO extends BaseDAO<LibraryBranch> {
     //READ BY NAME ETC
 
     //Get all library branches
-    public List<LibraryBranch> readAllLibraryBranches(LibraryBranch libraryBranch) throws ClassNotFoundException, SQLException{
-        return read("SELECT * FROM tbl_library_branch", null);
+    public List<LibraryBranch> readAllLibraryBranches() throws ClassNotFoundException, SQLException{
+        return read("SELECT * FROM tbl_library_branch");
     }
 
     // Get a library branch by an id
-    public List<LibraryBranch> readLibraryBranchById(LibraryBranch libraryBranch) throws ClassNotFoundException, SQLException{
-        return read("SELECT * FROM tbl_library_branch where branchId = ", new Object[] { libraryBranch.getBranchId()});
+    public List<LibraryBranch> readLibraryBranchById() throws ClassNotFoundException, SQLException{
+        return read("SELECT * FROM tbl_library_branch where branchId = ?");
     }
 
     // ALL GET DAOS WILL HAVE THIS METHOD
