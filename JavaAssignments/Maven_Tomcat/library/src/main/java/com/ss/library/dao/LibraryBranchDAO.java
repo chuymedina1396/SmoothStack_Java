@@ -49,6 +49,7 @@ public class LibraryBranchDAO extends BaseDAO<LibraryBranch> {
 	
 		while(rs.next()) {
             LibraryBranch a = new LibraryBranch();
+            a.setBranchId(rs.getInt("branchId"));
             a.setBranchName(rs.getString("branchName"));
             a.setBranchAddress(rs.getString("branchAddress"));
             libraryBranches.add(a);

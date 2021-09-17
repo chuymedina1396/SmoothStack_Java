@@ -12,10 +12,10 @@ import java.sql.Statement;
 
 public class ConnectionUtil {
 
-	public final String driver = "com.mysql.cj.jdbc.Driver";
-    public final String url = "jdbc:mysql://localhost:3306/library?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    public final String user = "root";
-    public final String password = "root";
+	public static final String driver = "com.mysql.cj.jdbc.Driver";
+    public static final String url = "jdbc:mysql://localhost:3306/library?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    public static final String user = "root";
+    public static final String password = "root";
 
 	public Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName(driver);

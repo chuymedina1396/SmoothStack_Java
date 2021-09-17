@@ -2,10 +2,10 @@ package com.ss.library.service;
 import java.sql.SQLException;
 import java.util.Scanner;
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException{
         mainMenu();
     }
-    public static void mainMenu() throws ClassNotFoundException, SQLException {
+    public static void mainMenu() throws ClassNotFoundException, SQLException  {
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to the SS Library Management System. Which category of a user are you");
         System.out.println("1) Librarian");
