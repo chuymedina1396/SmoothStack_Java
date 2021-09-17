@@ -9,6 +9,7 @@ import com.ss.library.dao.LibraryBranchDAO;
 
 public class LibrarianService {
 
+    private static final LibraryBranch LibraryBranch = null;
     ConnectionUtil util = new ConnectionUtil();
     
     public void librarianMenu() throws ClassNotFoundException, SQLException{
@@ -32,31 +33,31 @@ public class LibrarianService {
         scan.close();
     }
 
-    public String addLibraryBranch() throws ClassNotFoundException, SQLException {
-        Connection conn = null;
-        try{
-            conn = util.getConnection();
-            LibraryBranchDAO libraryDAO = new LibraryBranchDAO(conn);
-            System.out.println(libraryDAO);
+    // public String addLibraryBranch() throws ClassNotFoundException, SQLException {
+    //     Connection conn = null;
+    //     try{
+    //         conn = util.getConnection();
+    //         LibraryBranchDAO libraryDAO = new LibraryBranchDAO(conn);
+    //         System.out.println(libraryDAO);
 
             
-            // Not sure if these are nessesary for just adding a library branch to the database.
-            // BookLoans DAO
-            // BookCopies DAO
+    //         // Not sure if these are nessesary for just adding a library branch to the database.
+    //         // BookLoans DAO
+    //         // BookCopies DAO
 
-            conn.commit();
-            return "Library Branch Added!";
+    //         conn.commit();
+    //         return "Library Branch Added!";
 
-        }catch(Exception e){
-            e.printStackTrace();
-            conn.rollback();
-            return "Library Branch could not be added";
-        }finally{
-            if(conn!=null){
-                conn.close();
-            }
-        }
-    }
+    //     }catch(Exception e){
+    //         e.printStackTrace();
+    //         conn.rollback();
+    //         return "Library Branch could not be added";
+    //     }finally{
+    //         if(conn!=null){
+    //             conn.close();
+    //         }
+    //     }
+    // }
 
     // Transaction
     public String readLibraryBranches() throws ClassNotFoundException, SQLException {
@@ -65,9 +66,9 @@ public class LibrarianService {
             conn = util.getConnection();
             System.out.println(conn);
             LibraryBranchDAO libraryDAO = new LibraryBranchDAO(conn);
-            System.out.println(libraryDAO);
+            // How do I invoke this?
+            libraryDAO.readAllLibraryBranches();
 
-            
             conn.commit();
             return "Got all Library Branches";
         }

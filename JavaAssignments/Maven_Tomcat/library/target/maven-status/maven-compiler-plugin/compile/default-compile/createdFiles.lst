@@ -1,3 +1,16 @@
+com/ss/library/models/Genre.class
+com/ss/library/models/Author.class
 com/ss/library/service/App.class
+com/ss/library/models/Borrower.class
+com/ss/library/models/BookAuthors.class
 com/ss/library/service/AdminService.class
+com/ss/library/dao/BaseDAO.class
 com/ss/library/service/ConnectionUtil.class
+com/ss/library/models/Publisher.class
+com/ss/library/models/LibraryBranch.class
+com/ss/library/dao/LibraryBranchDAO.class
+com/ss/library/models/BookCopies.class
+com/ss/library/models/Book.class
+com/ss/library/models/BookLoans.class
+com/ss/library/models/BookGenres.class
+com/ss/library/service/LibrarianService.class
