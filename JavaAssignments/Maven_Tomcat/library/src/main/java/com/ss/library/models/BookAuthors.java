@@ -7,7 +7,8 @@ public class BookAuthors {
 
     public Author getAuthorId() {
         return authorId;
-    }public void setAuthorId(Author authorId) {
+    }
+    public void setAuthorId(Author authorId) {
         this.authorId = authorId;
     }
     public Book getBookId() {

@@ -4,7 +4,7 @@ import java.util.List;
 public class Book {
     //Atrrributes
     private Integer bookId;
-    private String title;
+    private String bookTitle;
     //Relationships
     private Publisher pubId;
     private List<BookLoans> bookLoans;
@@ -19,10 +19,10 @@ public class Book {
         this.bookId = bookId;
     }
     public String getTitle() {
-        return title;
+        return bookTitle;
     }
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
     }
     //Getter and Setter for relationship.
     public Publisher getPubId() {

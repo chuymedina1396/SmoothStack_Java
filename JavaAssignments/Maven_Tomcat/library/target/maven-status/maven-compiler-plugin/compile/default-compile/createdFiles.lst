@@ -7,6 +7,7 @@ com/ss/library/service/AdminService.class
 com/ss/library/dao/BaseDAO.class
 com/ss/library/service/ConnectionUtil.class
 com/ss/library/models/Publisher.class
+com/ss/library/dao/BookDAO.class
 com/ss/library/models/LibraryBranch.class
 com/ss/library/dao/LibraryBranchDAO.class
 com/ss/library/models/BookCopies.class

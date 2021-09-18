@@ -16,13 +16,13 @@ public class LibraryBranchDAO extends BaseDAO<LibraryBranch> {
         super(conn);
     }
 
-
     public void addLibraryBranch(LibraryBranch libraryBranch) throws ClassNotFoundException, SQLException {
         save("INSERT INTO tbl_library_branch VALUES(?,?)", new Object[] {libraryBranch.getBranchName(), libraryBranch.getBranchAddress() });
     }
+
     //What kind of update can we do? What if the user want to update the address and the name? For later...
-    public void updateLibraryBranch(LibraryBranch libraryBranch) throws ClassNotFoundException, SQLException {
-        save("UPDATE tbl_library_branch SET branchName = ? WHERE branchId = ? ", new Object[] {libraryBranch.getBranchName(), libraryBranch.getBranchId()});
+    public void updateLibraryBranch(Integer id, String name, String address) throws ClassNotFoundException, SQLException {
+        save("UPDATE tbl_library_branch SET branchName = ?, branchAddress = ? WHERE branchId = ? ", new Object[] {name, address, id});
     }
     public void deleteLibraryBranch(LibraryBranch libraryBranch) throws ClassNotFoundException, SQLException {
         save("DELETE from tbl_library_branch WHERE branchId = ? ", new Object[] {libraryBranch.getBranchId()});
@@ -53,18 +53,8 @@ public class LibraryBranchDAO extends BaseDAO<LibraryBranch> {
             a.setBranchName(rs.getString("branchName"));
             a.setBranchAddress(rs.getString("branchAddress"));
             libraryBranches.add(a);
-			// System.out.println("Branch Id: "+rs.getInt("branchId"));
-			// System.out.println("Branch Name:"+rs.getString("branchName"));
-			// System.out.println("Branch Address:"+rs.getString("branchAddress"));
 		}
-        // For getting a specific branch number, but we're just reading all for now.
-		// PreparedStatement pstmt = getConnection().prepareStatement("SELECT * FROM tbl_library_branch WHERE branchId = ?");
-        // pstmt.setInt(1, libraryBranch.getBranchId());
         return libraryBranches;
     }
 
-
-
-
-    
 }

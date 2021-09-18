@@ -38,6 +38,12 @@ public class LibraryBranch {
         // TODO Auto-generated method stub
         return this.branchName;
     }
+    // @Override
+    // public Integer getId() {
+    //     // TODO Auto-generated method stub
+    //     return this.branchId;
+    // }
+
 
     //Getters and Setters for relationships;
     public List<BookLoans> getBookLoans() {

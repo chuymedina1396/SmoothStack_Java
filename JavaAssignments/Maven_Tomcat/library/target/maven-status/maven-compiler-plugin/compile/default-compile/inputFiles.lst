@@ -10,6 +10,7 @@
 /Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/service/App.java
 /Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/LibraryBranch.java
 /Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/BookGenres.java
+/Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/dao/BookDAO.java
 /Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/models/BookAuthors.java
 /Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/service/AdminService.java
 /Users/chuy/Desktop/projects/smoothstack/JavaAssignments/Maven_Tomcat/library/src/main/java/com/ss/library/dao/LibraryBranchDAO.java
