@@ -33,6 +33,12 @@ public class LibraryBranch {
         this.branchAddress = branchAddress;
     }
 
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return this.branchName;
+    }
+
     //Getters and Setters for relationships;
     public List<BookLoans> getBookLoans() {
         return bookLoans;

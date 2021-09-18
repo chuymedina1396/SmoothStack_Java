@@ -23,6 +23,7 @@ public class App {
         }
         if(input == 3){
             System.out.println("You have chosen Borrower and will now be directed to the Borrower Menu");
+            // Redirect User to the Borrower Service.
         }
         scan.close();
     }
