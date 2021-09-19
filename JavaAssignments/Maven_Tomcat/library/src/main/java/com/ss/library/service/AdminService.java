@@ -8,5 +8,6 @@ public class AdminService {
         ConnectionUtil connUtil = new ConnectionUtil();
         System.out.println(connUtil);
         System.out.println("Welcome to the admin service!");
+        
     }
 }
