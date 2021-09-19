@@ -30,24 +30,19 @@ public class BorrowerService {
             conn = util.getConnection();
             BorrowerDAO borrowerDAO = new BorrowerDAO(conn);
 
-            borrowers = borrowerDAO.readAllBorrowers();
+            borrowers = borrowerDAO.readBorrowerById(cardNo);
+
+            if(borrowers.isEmpty()){
+                System.out.println("Wrong!");
+                borrowerMenu();
+            }
 
             // How do i filter the list that i get back for a cardNo that does not exist?????
             for (Borrower borrower : borrowers){  // Which you iterate
-                System.out.println(borrower.getCardNo() + ") " + borrower.getName() + borrower.getAddress() + borrower.getPhone());
+                System.out.println("Hello, " + borrower.getName() + "!");
             }
 
-            // How can we redirect the user back?
-            System.out.println(ANSI_YELLOW + (borrowers.size() + 1) + ")" + ANSI_YELLOW + " Quit to previous menu");
-
             conn.commit();
-            
-            // //Get the branch Id and send it over to our chooseBranchAction method for operations
-            // System.out.println("Enter ID of branch");
-            // Scanner scan = new Scanner(System.in);
-            // Integer input = scan.nextInt();
-            // chooseBranchAction(input);
-            // scan.close();
 
         }
         catch(ClassNotFoundException | SQLException e) {
