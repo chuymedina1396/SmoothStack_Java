@@ -43,8 +43,6 @@ public class LibraryBranchDAO extends BaseDAO<LibraryBranch> {
 
     // ALL GET DAOS WILL HAVE THIS METHOD
     public List<LibraryBranch> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
-
-
         List<LibraryBranch> libraryBranches = new ArrayList<>();
 	
 		while(rs.next()) {

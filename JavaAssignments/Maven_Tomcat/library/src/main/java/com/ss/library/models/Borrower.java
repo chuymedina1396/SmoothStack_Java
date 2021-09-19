@@ -11,6 +11,13 @@ public class Borrower {
     List<BookLoans> bookLoans;
 
     //Getters and setters for attributes.
+    public Integer getCardNo() {
+        return cardNo;
+    }
+    
+    public void setCardNo(Integer cardNo) {
+        this.cardNo = cardNo;
+    }
     public String getName() {
         return name;
     }
@@ -28,12 +35,6 @@ public class Borrower {
     }
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-    public Integer getCardNo() {
-        return cardNo;
-    }
-    public void setCardNo(Integer cardNo) {
-        this.cardNo = cardNo;
     }
     // Getter and Setter for the relationship: 1:n
 

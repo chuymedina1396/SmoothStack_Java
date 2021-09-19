@@ -37,13 +37,15 @@ public class BorrowerDAO extends BaseDAO<Borrower> {
 
     // ALL GET DAOS WILL HAVE THIS METHOD
     public List<Borrower> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
-
-
         List<Borrower> borrowers = new ArrayList<>();
 	
 		while(rs.next()) {
             Borrower a = new Borrower();
+            a.setCardNo(rs.getInt("cardNo"));
             a.setName(rs.getString("name"));
+            a.setAddress(rs.getString("address"));
+            a.setPhone(rs.getString("phone"));
+
             borrowers.add(a);
 		}
         return borrowers;
