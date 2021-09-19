@@ -6,9 +6,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Collections;
 
 import com.ss.library.models.Book;
+import com.ss.library.models.BookAuthors;
+import com.ss.library.models.BookCopies;
 import com.ss.library.models.LibraryBranch;
+import com.ss.library.models.Author;
+
+import com.ss.library.dao.AuthorDAO;
+import com.ss.library.dao.BookAuthorsDAO;
+import com.ss.library.dao.BookCopiesDAO;
 import com.ss.library.dao.BookDAO;
 import com.ss.library.dao.LibraryBranchDAO;
 
@@ -66,8 +74,12 @@ public class LibrarianService {
 
             conn.commit();
             
-            //Invoke getBranchById method
-            chooseBranchId();
+            //Get the branch Id and send it over to our chooseBranchAction method for operations
+            System.out.println("Enter ID of branch");
+            Scanner scan = new Scanner(System.in);
+            Integer input = scan.nextInt();
+            chooseBranchAction(input);
+            scan.close();
 
         }
         catch(ClassNotFoundException | SQLException e) {
@@ -80,15 +92,6 @@ public class LibrarianService {
         }
     }
 
-    // Get the Library branch by ID method
-    public void chooseBranchId() throws ClassNotFoundException, SQLException{
-        System.out.println("Enter ID of branch");
-        Scanner scan = new Scanner(System.in);
-        Integer input = scan.nextInt();
-        chooseBranchAction(input);
-        scan.close();
-    }
-
     public void chooseBranchAction(Integer input) throws ClassNotFoundException, SQLException {
         System.out.println("1) Update the details of the Library");
         System.out.println("2) Add copies of Book to the Branch");
@@ -96,11 +99,11 @@ public class LibrarianService {
         Scanner scan = new Scanner(System.in);
         Integer option = scan.nextInt();
         if(option == 1){
-            branchOptions(input);
+            updateLibraryBranch(input);
         }
         if(option == 2){
             // may need to use joins
-            addCopiesToBranch();
+            addCopiesToBranch(input);
         }
         if(option == 3){
             readLibraryBranches();
@@ -109,12 +112,13 @@ public class LibrarianService {
     }
     
     // Branch Options for the Selected Library Branch
-    public void branchOptions(Integer id ) throws ClassNotFoundException, SQLException{
+    public void updateLibraryBranch(Integer id ) throws ClassNotFoundException, SQLException{
         Connection conn = null;
         List<LibraryBranch> branch = new ArrayList<LibraryBranch>();
         try {
             conn = util.getConnection();
             LibraryBranchDAO libraryDAO = new LibraryBranchDAO(conn);
+            // This is where we get the branchId of the chosen library branch.
             branch = libraryDAO.readLibraryBranchById(id);
 
             // Get the String the branch Name from the variable above
@@ -167,25 +171,43 @@ public class LibrarianService {
         }
     }
 
-    public void addCopiesToBranch() throws ClassNotFoundException, SQLException {
+    public void addCopiesToBranch(Integer branchId) throws ClassNotFoundException, SQLException {
         System.out.println("Pick the Book you want to add copies of, to your branch:");
         Connection conn = null;
         List<Book> books = new ArrayList<Book>();
+        // List<Author> authors = new ArrayList<Author>();
+        // List<BookAuthors> bookAuthors = new ArrayList<BookAuthors>();
+        List<BookCopies> bookCopies = new ArrayList<BookCopies>();
+
         try {
             conn = util.getConnection();
             BookDAO bookDAO = new BookDAO(conn);
+            BookAuthorsDAO bookAuthorsDAO = new BookAuthorsDAO(conn);
+            AuthorDAO authorDAO = new AuthorDAO(conn);
+            BookCopiesDAO bookCopiesDAO = new BookCopiesDAO(conn);
 
             books = bookDAO.readAllBooks();
+            // authors = authorDAO.readAllAuthors();
+            // bookAuthors = bookAuthorsDAO.readAllBooksAuthors();
 
             for (Book book : books){  // Which you iterate 
                 System.out.println(ANSI_GREEN + book.getBookId() + ") " + ANSI_PURPLE + book.getTitle() + ANSI_YELLOW + " by " + ANSI_BLUE + book.getBookAuthors());
             }
-
             // How can we redirect the user back?
             System.out.println(ANSI_YELLOW + (books.size() + 1) + ")" + ANSI_YELLOW + " Quit to previous menu");
+            System.out.println("Enter the Book Id to add a copy of that book to the branch.");
+
+            Scanner scan = new Scanner(System.in);
+            Integer bookId = scan.nextInt();
+
+            System.out.println("Book Id: " + bookId);
+            System.out.println("BranchID: " + branchId);
+
+            bookCopies = bookCopiesDAO.readBookCopyByBranch(branchId, bookId);
+            System.out.println("Existing number of copies: " + bookCopies);
 
             conn.commit();
-
+            scan.close();
         }
         catch(ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -195,7 +217,5 @@ public class LibrarianService {
                 conn.close();
             }
         }
-
-
     }
 }

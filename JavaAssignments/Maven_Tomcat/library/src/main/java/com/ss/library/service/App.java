@@ -22,7 +22,8 @@ public class App {
             adminMenu.startMenu();
         }
         if(input == 3){
-            System.out.println("You have chosen Borrower and will now be directed to the Borrower Menu");
+            BorrowerService borrower = new BorrowerService();
+            borrower.borrowerMenu();
             // Redirect User to the Borrower Service.
         }
         scan.close();

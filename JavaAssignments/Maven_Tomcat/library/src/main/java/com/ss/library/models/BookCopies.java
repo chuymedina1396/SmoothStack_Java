@@ -13,6 +13,7 @@ public class BookCopies {
     public Integer getNoOfCopies() {
         return noOfCopies;
     }
+  
     public void setNoOfCopies(Integer noOfCopies) {
         this.noOfCopies = noOfCopies;
     }
@@ -30,4 +31,5 @@ public class BookCopies {
     public void setBranchId(LibraryBranch branchId) {
         this.branchId = branchId;
     }
+
 }

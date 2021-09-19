@@ -26,6 +26,16 @@ public abstract class BaseDAO<T> {
         pstmt.executeUpdate();
     }
 
+    public void get(String sql, Object[] vals ) throws ClassNotFoundException, SQLException {
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        int count =1;
+        for(Object o : vals){
+            pstmt.setObject(count,o);
+            count++;
+        }
+        pstmt.executeQuery();
+    }
+
     public Integer saveReturnPK(String sql, Object[] vals ) throws ClassNotFoundException, SQLException {
         PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         int count =1;
