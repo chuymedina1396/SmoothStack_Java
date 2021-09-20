@@ -16,14 +16,14 @@ public class AuthorDAO extends BaseDAO<Author> {
     }
 
     public void addAuthor(Author author) throws ClassNotFoundException, SQLException {
-        save("INSERT INTO tbl_author VALUES(?,?)", new Object[] {author.getAuthorName(), author.getBookAuthors()});
+        save("INSERT INTO tbl_author SET authorName VALUES(?)", new Object[] {author.getAuthorName()});
     }
     //What kind of update can we do? What if the user want to update the address and the name? For later...
     public void updateAuthor(Integer id, String name) throws ClassNotFoundException, SQLException {
         save("UPDATE tbl_author SET authorName = ? WHERE authorId = ? ", new Object[] {name, id});
     }
-    public void deleteAuthor(Author author) throws ClassNotFoundException, SQLException {
-        save("DELETE from tbl_author WHERE authorId = ? ", new Object[] {author.getAuthorId()});
+    public void deleteAuthor(Integer authorId) throws ClassNotFoundException, SQLException {
+        save("DELETE from tbl_author WHERE authorId = ? ", new Object[] {authorId});
     }
 
     //READ MY BRANCHID

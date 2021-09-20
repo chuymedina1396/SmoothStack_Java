@@ -41,7 +41,7 @@ public class LibrarianService {
     // Second method
     public void enterBranch() throws ClassNotFoundException, SQLException{
         System.out.println(ANSI_GREEN + "1) Enter branch you manage");
-        System.out.println(ANSI_GREEN + "2) Quite to previous");
+        System.out.println(ANSI_GREEN + "2) Quit to previous");
         Scanner scan = new Scanner(System.in);
         Integer input = scan.nextInt();
         if(input == 1){
@@ -78,6 +78,9 @@ public class LibrarianService {
             System.out.println("Enter ID of branch");
             Scanner scan = new Scanner(System.in);
             Integer input = scan.nextInt();
+            if(input == (branches.size() + 1)){
+                enterBranch();
+            }
             chooseBranchAction(input);
             scan.close();
 
@@ -132,7 +135,6 @@ public class LibrarianService {
             System.out.println(ANSI_RED + "Enter 'q' at any prompt to cancel operation.");
             Scanner scan = new Scanner(System.in);
            
-
             System.out.println(ANSI_GREEN + "Please enter new branch name or enter N/A for no change:");
 
             String name = scan.nextLine(); 
@@ -195,19 +197,37 @@ public class LibrarianService {
             }
             // How can we redirect the user back?
             System.out.println(ANSI_YELLOW + (books.size() + 1) + ")" + ANSI_YELLOW + " Quit to previous menu");
+
             System.out.println("Enter the Book Id to add a copy of that book to the branch.");
 
             Scanner scan = new Scanner(System.in);
             Integer bookId = scan.nextInt();
 
-            System.out.println("Book Id: " + bookId);
-            System.out.println("BranchID: " + branchId);
+            bookCopies = bookCopiesDAO.readBookCopyByBranch(bookId, branchId);
 
-            bookCopies = bookCopiesDAO.readBookCopyByBranch(branchId, bookId);
-            System.out.println("Existing number of copies: " + bookCopies);
+            for (BookCopies copy : bookCopies){  // Which you iterate 
+                System.out.println("Existing Number of copies:" + ANSI_GREEN + copy.getNoOfCopies());
+            }
+
+            if(bookId == books.size() + 1){
+                readLibraryBranches();
+            }
+
+            System.out.println("How many copies of book with bookId: " + bookId + " would you like to add to library branch:" + branchId);
+           
+            Integer copies = scan.nextInt();
+
+            System.out.println("Adding " + copies + " of book with bookId: " + bookId + "to branch with branch Id:" + branchId);
+
+            bookCopiesDAO.addBookCopies(copies, bookId, branchId);
+
+            System.out.println("Copies added to branch!");
 
             conn.commit();
+
             scan.close();
+
+
         }
         catch(ClassNotFoundException | SQLException e) {
             e.printStackTrace();

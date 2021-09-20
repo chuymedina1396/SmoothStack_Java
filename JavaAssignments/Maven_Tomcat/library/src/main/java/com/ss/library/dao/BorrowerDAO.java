@@ -11,19 +11,18 @@ import com.ss.library.models.Borrower;
 public class BorrowerDAO extends BaseDAO<Borrower> {
 
     public BorrowerDAO(Connection conn){
-        // super is also used in react to inherit from the parent class :)
         super(conn);
     }
 
-    public void addBorrower(Borrower borrower) throws ClassNotFoundException, SQLException {
-        save("INSERT INTO tbl_borrower VALUES(?,?,?)", new Object[] {borrower.getName(), borrower.getAddress(), borrower.getPhone()});
+    public void addBorrower(Integer cardNo, String name, String address, String phone) throws ClassNotFoundException, SQLException {
+        save("INSERT INTO tbl_borrower (VALUES(?,?,?,?))", new Object[] {cardNo, name, address, phone});
     }
     //What kind of update can we do? What if the user want to update the address and the name? For later...
     public void updateBorrower(Integer cardNo, String name) throws ClassNotFoundException, SQLException {
         save("UPDATE tbl_borrower SET name = ? WHERE cardNo = ? ", new Object[] {name, cardNo});
     }
-    public void deleteBorrower(Borrower borrower) throws ClassNotFoundException, SQLException {
-        save("DELETE from tbl_borrower WHERE authorId = ? ", new Object[] {borrower.getCardNo()});
+    public void deleteBorrower(Integer borrower) throws ClassNotFoundException, SQLException {
+        save("DELETE from tbl_borrower WHERE authorId = ? ", new Object[] {borrower});
     }
 
     // Get a library branch by an id

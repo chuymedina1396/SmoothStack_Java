@@ -15,6 +15,7 @@ public class LibraryBranch {
     public Integer getBranchId() {
         return branchId;
     }
+
     public void setBranchId(Integer branchId) {
         this.branchId = branchId;
     }
@@ -22,6 +23,7 @@ public class LibraryBranch {
     public String getBranchName() {
         return branchName;
     }
+
     public void setBranchName(String branchName) {
         this.branchName = branchName;
     }
@@ -29,6 +31,7 @@ public class LibraryBranch {
     public String getBranchAddress() {
         return branchAddress;
     }
+
     public void setBranchAddress(String branchAddress) {
         this.branchAddress = branchAddress;
     }
@@ -38,17 +41,17 @@ public class LibraryBranch {
         // TODO Auto-generated method stub
         return this.branchName;
     }
+
     // @Override
     // public Integer getId() {
     //     // TODO Auto-generated method stub
     //     return this.branchId;
     // }
-
-
     //Getters and Setters for relationships;
     public List<BookLoans> getBookLoans() {
         return bookLoans;
     }
+
     public void setBookLoans(List<BookLoans> bookLoans) {
         this.bookLoans = bookLoans;
     }
@@ -56,6 +59,7 @@ public class LibraryBranch {
     public List<BookCopies> getBookCopies() {
         return bookCopies;
     }
+    
     public void setBookCopies(List<BookCopies> bookCopies) {
         this.bookCopies = bookCopies;
     }

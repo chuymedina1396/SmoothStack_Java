@@ -24,8 +24,8 @@ public class LibraryBranchDAO extends BaseDAO<LibraryBranch> {
     public void updateLibraryBranch(Integer id, String name, String address) throws ClassNotFoundException, SQLException {
         save("UPDATE tbl_library_branch SET branchName = ?, branchAddress = ? WHERE branchId = ? ", new Object[] {name, address, id});
     }
-    public void deleteLibraryBranch(LibraryBranch libraryBranch) throws ClassNotFoundException, SQLException {
-        save("DELETE from tbl_library_branch WHERE branchId = ? ", new Object[] {libraryBranch.getBranchId()});
+    public void deleteLibraryBranch(Integer branchId) throws ClassNotFoundException, SQLException {
+        save("DELETE from tbl_library_branch WHERE branchId = ? ", new Object[] {branchId});
     }
 
     //READ MY BRANCHID

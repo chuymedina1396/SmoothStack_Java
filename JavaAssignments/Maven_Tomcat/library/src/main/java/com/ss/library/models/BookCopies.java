@@ -31,5 +31,11 @@ public class BookCopies {
     public void setBranchId(LibraryBranch branchId) {
         this.branchId = branchId;
     }
+    // @Override
+    // public String toString() {
+    //     // TODO Auto-generated method stub
+    //     return this.bookId;
+    // }
+
 
 }

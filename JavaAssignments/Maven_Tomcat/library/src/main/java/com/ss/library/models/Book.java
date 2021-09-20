@@ -49,5 +49,9 @@ public class Book {
     public void setBookLoans(List<BookLoans> bookLoans) {
         this.bookLoans = bookLoans;
     }
+    @Override
+    public String toString(){
+        return this.bookTitle;
+    }
 
 }
