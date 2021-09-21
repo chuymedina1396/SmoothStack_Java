@@ -147,8 +147,6 @@ public class BookCrud {
                 System.out.println(book);
             }
 
-            conn.commit();
-
             System.out.println(ANSI_GREEN + "Read Book Successfully");
             scan.close();
         }

@@ -154,8 +154,6 @@ public class LibraryBranchCrud {
                 System.out.println(branch.getBranchName());
             }
 
-            conn.commit();
-
             System.out.println(ANSI_GREEN + "Read LibraryBranch Successfully");
             scan.close();
         }

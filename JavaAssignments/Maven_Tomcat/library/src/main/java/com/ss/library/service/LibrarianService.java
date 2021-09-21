@@ -72,8 +72,6 @@ public class LibrarianService {
             // How can we redirect the user back?
             System.out.println(ANSI_YELLOW + (branches.size() + 1) + ")" + ANSI_YELLOW + " Quit to previous menu");
 
-            conn.commit();
-            
             //Get the branch Id and send it over to our chooseBranchAction method for operations
             System.out.println("Enter ID of branch");
             Scanner scan = new Scanner(System.in);
@@ -157,9 +155,10 @@ public class LibrarianService {
             
             libraryDAO.updateLibraryBranch(id, name, address);
 
-            conn.commit();
             System.out.println("Library Updated Successfully");
+
             chooseBranchAction(id);
+
             scan.close();
 
         }
@@ -221,12 +220,13 @@ public class LibrarianService {
 
             bookCopiesDAO.addBookCopies(copies, bookId, branchId);
 
-            System.out.println("Copies added to branch!");
-
             conn.commit();
 
-            scan.close();
+            System.out.println("Copies added to branch!");
 
+            
+
+            scan.close();
 
         }
         catch(ClassNotFoundException | SQLException e) {

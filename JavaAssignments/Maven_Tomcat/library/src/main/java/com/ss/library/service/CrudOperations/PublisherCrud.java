@@ -154,8 +154,6 @@ public class PublisherCrud {
                 System.out.println(ANSI_GREEN + publisher.getPublisherId() + ") " + "Name: " + publisher.getPublisherName() + " Address: " + publisher.getPublisherAddress() + publisher.getPublisherPhone());
             }
 
-            conn.commit();
-
             System.out.println(ANSI_GREEN + "Read Publisher Successfully");
             scan.close();
         }

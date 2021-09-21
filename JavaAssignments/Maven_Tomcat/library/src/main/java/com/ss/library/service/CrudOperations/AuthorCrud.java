@@ -82,7 +82,6 @@ public class AuthorCrud {
             System.out.println("What would you like the new Author name to be?");
             String newName = scan.nextLine();
             authorDAO.updateAuthor(authorId, newName);
-
             conn.commit();
 
             System.out.println("Author Updated Successfully");
@@ -144,11 +143,10 @@ public class AuthorCrud {
             Integer authorId = scan.nextInt();
 
             authors = authorDAO.readAuthorById(authorId);
+            
             for(Author author: authors){
                 System.out.println(author.getAuthorName());
             }
-
-            conn.commit();
 
             System.out.println(ANSI_GREEN + "Read Author Successfully");
             scan.close();

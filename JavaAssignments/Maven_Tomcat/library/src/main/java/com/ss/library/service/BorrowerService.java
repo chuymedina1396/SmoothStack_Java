@@ -53,7 +53,6 @@ public class BorrowerService {
             for (Borrower borrower : borrowers){  // Which you iterate
                 System.out.println(ANSI_GREEN + "Welcome, " + ANSI_YELLOW + borrower.getName() + ANSI_GREEN + " :) !" + " What would you like to do?");
             }
-            conn.commit();
 
             borrowerActions(cardNo);
 
@@ -105,7 +104,6 @@ public class BorrowerService {
             // How can we redirect the user back?
             System.out.println(ANSI_YELLOW + (branches.size() + 1) + ")" + ANSI_YELLOW + " Quit to previous menu");
 
-            conn.commit();
             
             //Get the branch Id and send it over to our chooseBranchAction method for operations
             System.out.println("Enter ID of branch you want to check out from");
@@ -176,7 +174,6 @@ public class BorrowerService {
                 System.out.println(ANSI_GREEN + bookCopy.getNoOfCopies() + ") " + ANSI_PURPLE);
             }
 
-            conn.commit();
             scan.close();
 
         }

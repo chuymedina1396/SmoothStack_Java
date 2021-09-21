@@ -149,8 +149,6 @@ public class GenreCrud {
                 System.out.println(genre.getGenre_name());
             }
 
-            conn.commit();
-
             System.out.println(ANSI_GREEN + "Read Genre Successfully");
             scan.close();
         }

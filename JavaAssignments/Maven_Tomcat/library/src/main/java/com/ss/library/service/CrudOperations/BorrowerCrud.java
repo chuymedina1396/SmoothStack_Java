@@ -152,11 +152,10 @@ public class BorrowerCrud {
             Integer borrowerId = scan.nextInt();
 
             borrowers = BorrowerDAO.readBorrowerById(borrowerId);
+            
             for(Borrower borrower: borrowers){
                 System.out.println("CardNo: " + borrower.getCardNo() + " Name: " + borrower.getName() + " Address " + borrower.getAddress() + " Phone " + borrower.getPhone() );
             }
-
-            conn.commit();
 
             System.out.println(ANSI_GREEN + "Read Borrower Successfully");
             scan.close();
