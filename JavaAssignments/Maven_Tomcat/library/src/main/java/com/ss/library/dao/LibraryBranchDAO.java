@@ -33,7 +33,7 @@ public class LibraryBranchDAO extends BaseDAO<LibraryBranch> {
 
     //Get all library branches
     public List<LibraryBranch> readAllLibraryBranches() throws ClassNotFoundException, SQLException{
-        return read("SELECT * FROM tbl_library_branch", new Object[] {});
+        return read("SELECT * FROM tbl_library_branch limit 10", new Object[] {});
     }
 
     // Get a library branch by an id

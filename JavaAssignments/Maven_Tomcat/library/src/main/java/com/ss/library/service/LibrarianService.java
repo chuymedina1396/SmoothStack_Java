@@ -220,13 +220,11 @@ public class LibrarianService {
 
             bookCopiesDAO.addBookCopies(copies, bookId, branchId);
 
-            conn.commit();
-
             System.out.println("Copies added to branch!");
 
-            
-
             scan.close();
+            conn.commit();
+
 
         }
         catch(ClassNotFoundException | SQLException e) {

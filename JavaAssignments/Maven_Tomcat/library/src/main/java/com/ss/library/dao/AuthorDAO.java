@@ -31,7 +31,7 @@ public class AuthorDAO extends BaseDAO<Author> {
 
     //Get all library branches
     public List<Author> readAllAuthors() throws ClassNotFoundException, SQLException{
-        return read("SELECT * FROM tbl_author", new Object[] {});
+        return read("SELECT * FROM tbl_author", null);
     }
 
     // Get a library branch by an id

@@ -28,7 +28,7 @@ public class BookDAO extends BaseDAO<Book> {
 
     //Get all library branches
     public List<Book> readAllBooks() throws ClassNotFoundException, SQLException{
-        return read("SELECT * FROM tbl_book ORDER BY title limit 10", new Object[] {});
+        return read("SELECT * FROM tbl_book ORDER BY bookId limit 10", new Object[] {});
     }
 
     // Get a library branch by an id
