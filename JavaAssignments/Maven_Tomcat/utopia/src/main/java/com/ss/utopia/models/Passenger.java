@@ -5,8 +5,8 @@ import java.util.Objects;
 public class Passenger {
     private Integer passengerId;
     private Booking bookingId;
-    private String given_name;
-    public String family_name;
+    private String givenName;
+    public String familyName;
     public String dob;
     public String gender;
     public String address;
@@ -15,11 +15,11 @@ public class Passenger {
     public Passenger() {
     }
 
-    public Passenger(Integer passengerId, Booking bookingId, String given_name, String family_name, String dob, String gender, String address) {
+    public Passenger(Integer passengerId, Booking bookingId, String givenName, String familyName, String dob, String gender, String address) {
         this.passengerId = passengerId;
         this.bookingId = bookingId;
-        this.given_name = given_name;
-        this.family_name = family_name;
+        this.givenName = givenName;
+        this.familyName = familyName;
         this.dob = dob;
         this.gender = gender;
         this.address = address;
@@ -41,20 +41,20 @@ public class Passenger {
         this.bookingId = bookingId;
     }
 
-    public String getGiven_name() {
-        return this.given_name;
+    public String getGivenName() {
+        return this.givenName;
     }
 
-    public void setGiven_name(String given_name) {
-        this.given_name = given_name;
+    public void setGivenName(String givenName) {
+        this.givenName = givenName;
     }
 
-    public String getFamily_name() {
-        return this.family_name;
+    public String getFamilyName() {
+        return this.familyName;
     }
 
-    public void setFamily_name(String family_name) {
-        this.family_name = family_name;
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
     }
 
     public String getDob() {
@@ -91,13 +91,13 @@ public class Passenger {
         return this;
     }
 
-    public Passenger given_name(String given_name) {
-        setGiven_name(given_name);
+    public Passenger givenName(String givenName) {
+        setGivenName(givenName);
         return this;
     }
 
-    public Passenger family_name(String family_name) {
-        setFamily_name(family_name);
+    public Passenger familyName(String familyName) {
+        setFamilyName(familyName);
         return this;
     }
 
@@ -124,12 +124,12 @@ public class Passenger {
             return false;
         }
         Passenger passenger = (Passenger) o;
-        return Objects.equals(passengerId, passenger.passengerId) && Objects.equals(bookingId, passenger.bookingId) && Objects.equals(given_name, passenger.given_name) && Objects.equals(family_name, passenger.family_name) && Objects.equals(dob, passenger.dob) && Objects.equals(gender, passenger.gender) && Objects.equals(address, passenger.address);
+        return Objects.equals(passengerId, passenger.passengerId) && Objects.equals(bookingId, passenger.bookingId) && Objects.equals(givenName, passenger.givenName) && Objects.equals(familyName, passenger.familyName) && Objects.equals(dob, passenger.dob) && Objects.equals(gender, passenger.gender) && Objects.equals(address, passenger.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(passengerId, bookingId, given_name, family_name, dob, gender, address);
+        return Objects.hash(passengerId, bookingId, givenName, familyName, dob, gender, address);
     }
 
     @Override
@@ -137,8 +137,8 @@ public class Passenger {
         return "{" +
             " passengerId='" + getPassengerId() + "'" +
             ", bookingId='" + getBookingId() + "'" +
-            ", given_name='" + getGiven_name() + "'" +
-            ", family_name='" + getFamily_name() + "'" +
+            ", givenName='" + getGivenName() + "'" +
+            ", familyName='" + getFamilyName() + "'" +
             ", dob='" + getDob() + "'" +
             ", gender='" + getGender() + "'" +
             ", address='" + getAddress() + "'" +

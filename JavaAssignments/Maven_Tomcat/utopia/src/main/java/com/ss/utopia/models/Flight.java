@@ -10,21 +10,21 @@ public class Flight{
     private Route routeId;
     private Airplane airplaneId;
 
-    private String departure_time;
-    private Integer reserved_seats;
-    private Float seat_price;
-    
+    private String departureTime;
+    private Integer reservedSeats;
+    private Float seatPrice;
+
 
     public Flight() {
     }
 
-    public Flight(Integer flightId, Route routeId, Airplane airplaneId, String departure_time, Integer reserved_seats, Float seat_price) {
+    public Flight(Integer flightId, Route routeId, Airplane airplaneId, String departureTime, Integer reservedSeats, Float seatPrice) {
         this.flightId = flightId;
         this.routeId = routeId;
         this.airplaneId = airplaneId;
-        this.departure_time = departure_time;
-        this.reserved_seats = reserved_seats;
-        this.seat_price = seat_price;
+        this.departureTime = departureTime;
+        this.reservedSeats = reservedSeats;
+        this.seatPrice = seatPrice;
     }
 
     public Integer getFlightId() {
@@ -51,28 +51,28 @@ public class Flight{
         this.airplaneId = airplaneId;
     }
 
-    public String getDeparture_time() {
-        return this.departure_time;
+    public String getDepartureTime() {
+        return this.departureTime;
     }
 
-    public void setDeparture_time(String departure_time) {
-        this.departure_time = departure_time;
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
     }
 
-    public Integer getReserved_seats() {
-        return this.reserved_seats;
+    public Integer getReservedSeats() {
+        return this.reservedSeats;
     }
 
-    public void setReserved_seats(Integer reserved_seats) {
-        this.reserved_seats = reserved_seats;
+    public void setReservedSeats(Integer reservedSeats) {
+        this.reservedSeats = reservedSeats;
     }
 
-    public Float getSeat_price() {
-        return this.seat_price;
+    public Float getSeatPrice() {
+        return this.seatPrice;
     }
 
-    public void setSeat_price(Float seat_price) {
-        this.seat_price = seat_price;
+    public void setSeatPrice(Float seatPrice) {
+        this.seatPrice = seatPrice;
     }
 
     public Flight flightId(Integer flightId) {
@@ -90,18 +90,18 @@ public class Flight{
         return this;
     }
 
-    public Flight departure_time(String departure_time) {
-        setDeparture_time(departure_time);
+    public Flight departureTime(String departureTime) {
+        setDepartureTime(departureTime);
         return this;
     }
 
-    public Flight reserved_seats(Integer reserved_seats) {
-        setReserved_seats(reserved_seats);
+    public Flight reservedSeats(Integer reservedSeats) {
+        setReservedSeats(reservedSeats);
         return this;
     }
 
-    public Flight seat_price(Float seat_price) {
-        setSeat_price(seat_price);
+    public Flight seatPrice(Float seatPrice) {
+        setSeatPrice(seatPrice);
         return this;
     }
 
@@ -113,12 +113,12 @@ public class Flight{
             return false;
         }
         Flight flight = (Flight) o;
-        return Objects.equals(flightId, flight.flightId) && Objects.equals(routeId, flight.routeId) && Objects.equals(airplaneId, flight.airplaneId) && Objects.equals(departure_time, flight.departure_time) && Objects.equals(reserved_seats, flight.reserved_seats) && Objects.equals(seat_price, flight.seat_price);
+        return Objects.equals(flightId, flight.flightId) && Objects.equals(routeId, flight.routeId) && Objects.equals(airplaneId, flight.airplaneId) && Objects.equals(departureTime, flight.departureTime) && Objects.equals(reservedSeats, flight.reservedSeats) && Objects.equals(seatPrice, flight.seatPrice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(flightId, routeId, airplaneId, departure_time, reserved_seats, seat_price);
+        return Objects.hash(flightId, routeId, airplaneId, departureTime, reservedSeats, seatPrice);
     }
 
     @Override
@@ -127,11 +127,15 @@ public class Flight{
             " flightId='" + getFlightId() + "'" +
             ", routeId='" + getRouteId() + "'" +
             ", airplaneId='" + getAirplaneId() + "'" +
-            ", departure_time='" + getDeparture_time() + "'" +
-            ", reserved_seats='" + getReserved_seats() + "'" +
-            ", seat_price='" + getSeat_price() + "'" +
+            ", departureTime='" + getDepartureTime() + "'" +
+            ", reservedSeats='" + getReservedSeats() + "'" +
+            ", seatPrice='" + getSeatPrice() + "'" +
             "}";
     }
+
+    
+
+
 
     
     

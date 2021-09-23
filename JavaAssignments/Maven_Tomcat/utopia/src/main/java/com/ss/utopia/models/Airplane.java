@@ -6,9 +6,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class Airplane {
+    
     private Integer airplaneId;
     private AirplaneType airplaneTypeId;
-    private List<Flight> flights;
+    private List<Flight> flights; 
 
 
     public Airplane() {

@@ -6,18 +6,18 @@ import java.util.List;
 import java.util.Objects;
 
 public class AirplaneType {
+    
     private Integer airplaneTypeId;
-    private Integer max_Capacity;
+    private Integer maxCapacity;
 
     List<Airplane> airplanes;
-
 
     public AirplaneType() {
     }
 
-    public AirplaneType(Integer airplaneTypeId, Integer max_Capacity, List<Airplane> airplanes) {
+    public AirplaneType(Integer airplaneTypeId, Integer maxCapacity, List<Airplane> airplanes) {
         this.airplaneTypeId = airplaneTypeId;
-        this.max_Capacity = max_Capacity;
+        this.maxCapacity = maxCapacity;
         this.airplanes = airplanes;
     }
 
@@ -29,12 +29,12 @@ public class AirplaneType {
         this.airplaneTypeId = airplaneTypeId;
     }
 
-    public Integer getMax_Capacity() {
-        return this.max_Capacity;
+    public Integer getMaxCapacity() {
+        return this.maxCapacity;
     }
 
-    public void setMax_Capacity(Integer max_Capacity) {
-        this.max_Capacity = max_Capacity;
+    public void setMaxCapacity(Integer maxCapacity) {
+        this.maxCapacity = maxCapacity;
     }
 
     public List<Airplane> getAirplanes() {
@@ -50,8 +50,8 @@ public class AirplaneType {
         return this;
     }
 
-    public AirplaneType max_Capacity(Integer max_Capacity) {
-        setMax_Capacity(max_Capacity);
+    public AirplaneType maxCapacity(Integer maxCapacity) {
+        setMaxCapacity(maxCapacity);
         return this;
     }
 
@@ -68,22 +68,23 @@ public class AirplaneType {
             return false;
         }
         AirplaneType airplaneType = (AirplaneType) o;
-        return Objects.equals(airplaneTypeId, airplaneType.airplaneTypeId) && Objects.equals(max_Capacity, airplaneType.max_Capacity) && Objects.equals(airplanes, airplaneType.airplanes);
+        return Objects.equals(airplaneTypeId, airplaneType.airplaneTypeId) && Objects.equals(maxCapacity, airplaneType.maxCapacity) && Objects.equals(airplanes, airplaneType.airplanes);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(airplaneTypeId, max_Capacity, airplanes);
+        return Objects.hash(airplaneTypeId, maxCapacity, airplanes);
     }
 
     @Override
     public String toString() {
         return "{" +
             " airplaneTypeId='" + getAirplaneTypeId() + "'" +
-            ", max_Capacity='" + getMax_Capacity() + "'" +
+            ", maxCapacity='" + getMaxCapacity() + "'" +
             ", airplanes='" + getAirplanes() + "'" +
             "}";
     }
+    
 
 
     
