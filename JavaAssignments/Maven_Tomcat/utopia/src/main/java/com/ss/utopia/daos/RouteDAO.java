@@ -6,51 +6,52 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ss.utopia.models.Airport;
 import com.ss.utopia.models.Route;
 
 public class RouteDAO extends BaseDAO<Route> {
 
-    public RouteDAO(Connection conn){
-        // super is also used in react to inherit from the parent class :)
-        super(conn);
-    }
+	public RouteDAO(Connection conn) {
+		super(conn);
+	}
 
-    public void addRoute(Route route) throws ClassNotFoundException, SQLException {
-        save("INSERT INTO route (origin_id, destination_id)  VALUES(?,?)", new Object[] {route.getOriginAirport(), route.getDestAirport()});
-    }
-    
-    public void updateRoute(Route route) throws ClassNotFoundException, SQLException {
-        save("UPDATE route SET authorName = ? WHERE authorId = ? ", new Object[] {route.getOriginAirport(), route.getDestAirport(), route.getRouteId()});
-    }
-    public void deleteRoute(Route route) throws ClassNotFoundException, SQLException {
-        save("DELETE from route WHERE routeId = ? ", new Object[] {route.getRouteId()});
-    }
+	public void addRoute(Route route) throws ClassNotFoundException, SQLException {
+		save("INSERT INTO route (origin_id, destination_id) VALUES (?, ?)", new Object[] {
+				route.getOriginAirport().getAirportCode(), 
+				route.getDestAirport().getAirportCode() 
+			});
+	}
 
-    //Get all library branches
-    public List<Route> readAllRoutes() throws ClassNotFoundException, SQLException{
-        return read("SELECT * FROM route", null);
-    }
+	public void updateRoute(Route route) throws ClassNotFoundException, SQLException {
+		save("UPDATE route set origin_id = ? AND destination_id = ? where id = ?", new Object[] { 
+			route.getOriginAirport().getAirportCode(),
+			route.getDestAirport().getAirportCode(), 
+			route.getRouteId() 
+		});
+	}
 
-    // Get a library branch by an id
-    public List<Route> readRouteById(Route route) throws ClassNotFoundException, SQLException{
-        return read("SELECT * FROM route where routeId = ?", new Object [] {route.getRouteId()});
-    }
+	public void deleteRoute(Route route) throws ClassNotFoundException, SQLException {
+		save("delete from route where id = ?", new Object[] { route.getRouteId() });
+	}
 
-    // ALL GET DAOS WILL HAVE THIS METHOD
-    public List<Route> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
-
-
-        List<Route> routes = new ArrayList<>();
+	public List<Route> readRoutes() throws ClassNotFoundException, SQLException {
+		return read("SELECT * FROM route", null);
+	}
 	
-		while(rs.next()) {
-            Route route = new Route();
-            Airport airport = new Airport();
-            route.setDestAirport(airport.getAirportCode());
-            // a.setBookRoutes(rs.getString("bookRoutes"));
-            routes.add(route);
+	public List<Route> readRoutesByAirportCode(String airportCode) throws ClassNotFoundException, SQLException {
+		return read("SELECT * FROM route WHERE origin_id = ? OR destination_id = ?", 
+						new Object[] { airportCode, airportCode });
+	}
+
+	@Override
+	public List<Route> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
+		List<Route> routes = new ArrayList<>();
+		while (rs.next()) {
+			Route route = new Route();
+			route.setRouteId(rs.getInt("id"));
+			route.getOriginAirport().setAirportCode(rs.getString("origin_id"));
+			route.getDestAirport().setAirportCode(rs.getString("destination_id"));
+			routes.add(route);
 		}
-        return routes;
-    }
-  
+		return routes;
+	}
 }

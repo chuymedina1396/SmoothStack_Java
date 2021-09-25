@@ -1,13 +1,11 @@
 package com.ss.utopia;
 
-/**
- * Hello world!
- *
- */
+import com.ss.utopia.menu.MainMenu;
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Let's get it!" );
+        MainMenu.getUserCategory();
     }
 }

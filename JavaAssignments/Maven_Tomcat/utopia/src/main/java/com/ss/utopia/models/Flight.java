@@ -15,6 +15,8 @@ public class Flight{
     private Float seatPrice;
 
 
+
+
     public Flight() {
     }
 
@@ -132,9 +134,7 @@ public class Flight{
             ", seatPrice='" + getSeatPrice() + "'" +
             "}";
     }
-
-    
-
+   
 
 
     

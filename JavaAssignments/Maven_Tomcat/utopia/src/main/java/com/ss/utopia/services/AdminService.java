@@ -1,10 +1,20 @@
 package com.ss.utopia.services;
 
+// Packages
 import java.sql.SQLException;
+import java.sql.Connection;
 
+//Utilities
+import com.ss.utopia.utilities.ConnectionUtil;
+
+//DAOS
 import com.ss.utopia.daos.RouteDAO;
 import com.ss.utopia.daos.AirportDAO;
-import com.ss.utopia.utilities.ConnectionUtil;
+
+//Models
+import com.ss.utopia.models.Route;
+import com.ss.utopia.models.Airport;
+
 
 public class AdminService {
     ConnectionUtil connUtil = new ConnectionUtil();
