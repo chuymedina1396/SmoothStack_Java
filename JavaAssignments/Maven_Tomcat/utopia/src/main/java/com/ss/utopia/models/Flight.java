@@ -2,6 +2,9 @@ package com.ss.utopia.models;
 
 import java.util.Objects;
 
+// Java packaged we learned about in Java Basics Five
+import java.time.LocalDateTime;
+
 public class Flight{
     
     private Integer flightId;
@@ -13,8 +16,6 @@ public class Flight{
     private String departureTime;
     private Integer reservedSeats;
     private Float seatPrice;
-
-
 
 
     public Flight() {
@@ -134,9 +135,6 @@ public class Flight{
             ", seatPrice='" + getSeatPrice() + "'" +
             "}";
     }
-   
 
-
-    
     
 }

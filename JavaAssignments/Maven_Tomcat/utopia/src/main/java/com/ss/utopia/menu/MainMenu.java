@@ -7,9 +7,6 @@ import static com.ss.utopia.utilities.ScannerUtil.getIntInput;
 
 
 public class MainMenu {
-    public static void main(String[] args) {
-        
-    }
     public static void getUserCategory() {
             System.out.println("Welcome to the Utopia Airlines Managment System. Which category of a user are you:" + newLine()
             + newLine()
@@ -17,11 +14,12 @@ public class MainMenu {
             + " 2) Administrator" + newLine()
             + " 3) Traveler" + newLine()
             );
+            Integer selection = getIntInput();
             // if(getIntInput() == 1){
             //     EmployeeMenu employeeMenu = new EmployeeMenu();
             //     employeeMenu.adminMenuOption();
             // };
-            if(getIntInput() == 2) {
+            if(selection == 2) {
                 AdminMenu adminMenu = new AdminMenu();
                 adminMenu.adminMenuOptions();
             };
