@@ -3,11 +3,15 @@ package com.ss.utopia.menu;
 import com.ss.utopia.menu.admin.AdminMenu;
 
 import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
+
+import java.sql.SQLException;
+
 import static com.ss.utopia.utilities.ScannerUtil.getIntInput;
 
 
 public class MainMenu {
-    public static void getUserCategory() {
+    
+    public static void getUserCategory() throws ClassNotFoundException, SQLException {
             System.out.println("Welcome to the Utopia Airlines Managment System. Which category of a user are you:" + newLine()
             + newLine()
             + " 1) Employee" + newLine()

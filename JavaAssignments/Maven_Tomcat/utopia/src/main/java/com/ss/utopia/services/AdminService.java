@@ -26,12 +26,13 @@ public class AdminService {
     
     ConnectionUtil connUtil = new ConnectionUtil();
 
-    private final FlightDAO flightDAO;
+    private FlightDAO flightDAO;
 
-    public AdminService(FlightDAO dao) {
-        this.flightDAO = dao;
-    }
+    // public AdminService(FlightDAO dao) {
+    //     this.flightDAO = dao;
+    // }
 
+    // To add a flight, we need the route id, the airplane id, the departure_time, reserved_seats, and the seat_price
     public String addFlight(Route route, Airplane airplane) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         try{

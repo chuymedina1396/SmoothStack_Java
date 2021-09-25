@@ -1,13 +1,16 @@
 package com.ss.utopia.menu.admin;
 
 import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
+
+import java.sql.SQLException;
+
 import static com.ss.utopia.utilities.ScannerUtil.getIntInput;
 import com.ss.utopia.menu.admin.flights.AdminFlightsMenu;
 
 
 public class AdminMenu {
 
-    public void adminMenuOptions() {
+    public void adminMenuOptions() throws ClassNotFoundException, SQLException {
         System.out.println( "Welcome Admin. What would you like to see:" + newLine() 
             + newLine()
             + "  1) Add/Update/Delete/Read Flights" + newLine()

@@ -2,10 +2,12 @@ package com.ss.utopia.menu.admin.flights;
 
 import java.util.List;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import com.ss.utopia.daos.FlightDAO;
 
 import com.ss.utopia.models.Route;
+import com.ss.utopia.services.AdminService;
 import com.ss.utopia.models.Airplane;
 import com.ss.utopia.models.Flight;
 
@@ -20,7 +22,7 @@ import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
 
 public class AdminFlightsMenu {
 
-    public static void AdminFlightsStartMenu() {
+    public static void AdminFlightsStartMenu() throws ClassNotFoundException, SQLException {
         System.out.println( "Welcome Admin. What would you like to see:" + newLine()
         + "  1) Add Flight" 
         + "  2) Update Flight" 
@@ -36,12 +38,12 @@ public class AdminFlightsMenu {
             Route route = new Route();
             Airplane airplane = new Airplane();
 
-            System.out.println("Enter Route ID for flight");
+            System.out.println("Enter Origin AirportCodes for Flight");
             Integer route_id = getIntInput();
             route.setRouteId(route_id);
             
 
-            System.out.println("Enter Airplane ID for flight");
+            System.out.println("Enter Airplane ID for Flight");
             Integer airplane_id = getIntInput();
             airplane.setAirplaneId(airplane_id);
 
@@ -56,7 +58,10 @@ public class AdminFlightsMenu {
             // System.out.println("Enter a Seat Price");
             // Float seat_price = getFloatInput();
 
-            System.out.println("Add this data: " +route.getRouteId()+airplane.getAirplaneId()+ "to the addFlight service!");
+            AdminService adminService = new AdminService();
+            adminService.addFlight(route, airplane);
+
+            // System.out.println("Add this data: " +route.getRouteId()+airplane.getAirplaneId()+ "to the addFlight service!");
 
         }
     }
