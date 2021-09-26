@@ -41,9 +41,9 @@ public class AdminAirportMenu {
         }
         if(selection == 3){
             AdminService adminService = new AdminService();
-            System.out.println("Enter Flight Id to delete");
-            Integer flightId = getIntInput();
-            adminService.deleteFlight(flightId);
+            System.out.println("Enter Airport Code to delete");
+            String airportCode = getStringInput();
+            adminService.deleteAirport(airportCode);
             AdminAirportsStartMenu();
         }
         if(selection == 4) {
