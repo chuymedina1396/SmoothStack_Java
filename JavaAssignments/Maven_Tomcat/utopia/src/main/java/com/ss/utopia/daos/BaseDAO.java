@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class BaseDAO<T> {
 
-    protected Connection conn = null;
+    private final Connection conn;
 
     // Constructor forces any class that inherts from the base to have a connection.
     public BaseDAO(Connection conn){
@@ -24,6 +24,9 @@ public abstract class BaseDAO<T> {
             count++;
         }
         pstmt.executeUpdate();
+    }
+
+    private void setStatementValues(PreparedStatement ps, Object[] values) {
     }
 
     public void get(String sql, Object[] vals ) throws ClassNotFoundException, SQLException {

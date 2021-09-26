@@ -70,10 +70,16 @@ public class AdminFlightsMenu {
             AdminService adminService = new AdminService();
             List<Flight> flights = adminService.getAllFlights();
             for (Flight flight : flights){  // Which you iterate 
-                System.out.println(flight.getFlightId() + newLine()
+                System.out.println("Reading flights from database" + newLine() 
+                    + "Flight Id: " 
+                    + flight.getFlightId()
+                    + " | Departure Time: "
                     + flight.getDepartureTime()
+                    + ") | Reserved Seats: "
                     + flight.getReservedSeats()
+                    + " | Seat Price: "
                     + flight.getSeatPrice()
+                    
                 );
             }
         }

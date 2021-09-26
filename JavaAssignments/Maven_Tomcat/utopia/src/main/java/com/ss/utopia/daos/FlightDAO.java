@@ -6,7 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ss.utopia.models.Airplane;
 import com.ss.utopia.models.Flight;
+import com.ss.utopia.models.Route;
 
 public class FlightDAO extends BaseDAO<Flight> {
 
@@ -53,9 +55,12 @@ public class FlightDAO extends BaseDAO<Flight> {
 		List<Flight> flights = new ArrayList<>();
 		while (rs.next()) {
 			Flight flight = new Flight();
+			Route route = new Route();
+			route.getRouteId();
+			Airplane airport = new Airplane();
 			flight.setFlightId(rs.getInt("id"));
-			// flight.setRouteId().getRouteId(rs.getInt("route_id"));
-			// flight.getAirplane().setAirplaneId(rs.getInt("airplane_id"));
+			// flight.setRouteId(route.getRouteId());
+			// flight.getAirplane().setAirplaneId(rs.getInt(airport.getAirplaneId()));
 			flight.setDepartureTime(rs.getString("departure_time"));
 			flight.setReservedSeats(rs.getInt("reserved_seats"));
 			flight.setSeatPrice(rs.getFloat("seat_price"));
