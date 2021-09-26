@@ -28,13 +28,16 @@ public class AdminService {
     ConnectionUtil connUtil = new ConnectionUtil();
 
     // To add a flight, we need the route id, the airplane id, the departure_time, reserved_seats, and the seat_price
-    public String addFlight(Route route, Airplane airplane) throws ClassNotFoundException, SQLException {
+    public String addFlight(Route route, Airplane airplane, Flight flight) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         try{
             conn = connUtil.getConnection();
             RouteDAO rdao = new RouteDAO(conn);
             rdao.addRoute(route);
             AirplaneDAO adao = new AirplaneDAO(conn);
+            adao.addAirplane(airplane);
+            FlightDAO fdao = new FlightDAO(conn);
+            fdao.addFlight(flight);
             conn.commit(); // commit to database
             return "Flight added successfully";
         }catch(Exception e){
