@@ -5,7 +5,10 @@ import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
 import java.sql.SQLException;
 
 import static com.ss.utopia.utilities.ScannerUtil.getIntInput;
+
+
 import com.ss.utopia.menu.admin.flights.AdminFlightsMenu;
+import com.ss.utopia.menu.admin.airports.AdminAirportsMenu;
 
 
 public class AdminMenu {
@@ -26,6 +29,9 @@ public class AdminMenu {
 
             if(selection == 1){
                 AdminFlightsMenu.AdminFlightsStartMenu();
+            }
+            if(selection == 4){
+                AdminAirportsMenu.AdminAirportsStartMenu();
             }
     }
     

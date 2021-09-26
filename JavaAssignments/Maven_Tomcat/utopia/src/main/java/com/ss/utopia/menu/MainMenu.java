@@ -23,7 +23,7 @@ public class MainMenu {
             if(selection == 1){
                 EmployeeMenu employeeMenu = new EmployeeMenu();
                 employeeMenu.employeeMenuOption();
-            };
+            }
             if(selection == 2) {
                 AdminMenu adminMenu = new AdminMenu();
                 adminMenu.adminMenuOptions();

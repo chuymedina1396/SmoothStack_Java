@@ -27,7 +27,7 @@ public class AdminService {
     
     ConnectionUtil connUtil = new ConnectionUtil();
 
-    // To add a flight, we need the route id, the airplane id, the departure_time, reserved_seats, and the seat_price
+    //** ALL SERVICE METHODS FOR FLIGHT OPERATIONS ** /
     public String addFlight(Route route, Airplane airplane, Flight flight) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         try{
@@ -51,7 +51,24 @@ public class AdminService {
             }
         }
     }
-    
+    public void updateFlight(Float seatPrice, Integer flightId) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        try {
+            conn = connUtil.getConnection();
+            FlightDAO fdao = new FlightDAO(conn);
+            fdao.updateFlight(seatPrice, flightId);
+            conn.commit();
+            System.out.println("Flight Updated");
+        } catch(ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            conn.rollback();
+        } finally {
+            if(conn != null){
+                conn.close();
+            }
+        }
+    }
+    // GET ALL FLIGHTS METHOD 
     public List<Flight> getAllFlights() throws ClassNotFoundException, SQLException {
         Connection conn = null;
         List<Flight> flights = new ArrayList<Flight>();
@@ -64,7 +81,7 @@ public class AdminService {
             return Collections.emptyList();
         }
     }
-
+    // GET A FLIGHT BY ID
     public List<Flight> readFlightsById(Integer flightId) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         List<Flight> flights = new ArrayList<Flight>();
@@ -75,6 +92,71 @@ public class AdminService {
             return flights;
         } catch (SQLException ex) {
             return Collections.emptyList();
+        }
+    }
+    public void deleteFlight(Integer flightId) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        try {
+            conn = connUtil.getConnection();
+            FlightDAO fdao = new FlightDAO(conn);
+            fdao.deleteFlight(flightId);
+            conn.commit();
+            System.out.println("Flight Deleted");
+        } catch(ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            conn.rollback();
+        } finally {
+            if(conn != null){
+                conn.close();
+            }
+        }
+    }
+
+    // ** ALL SERVICE METHODS FOR AIRPORT OPERATIONS ** /
+    public List<Airport> getAllAirports() throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        List<Airport> airports = new ArrayList<Airport>();
+        try {
+            conn = connUtil.getConnection();
+            AirportDAO adao = new AirportDAO(conn);
+            airports = adao.readAirports();
+            return airports;
+        } catch (SQLException ex) {
+            return Collections.emptyList();
+        }
+    }
+    public void deleteAirport(String airportCode) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        try {
+            conn = connUtil.getConnection();
+            AirportDAO adao = new AirportDAO(conn);
+            adao.deleteAirport(airportCode);
+            conn.commit();
+            System.out.println("Flight Deleted");
+        } catch(ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            conn.rollback();
+        } finally {
+            if(conn != null){
+                conn.close();
+            }
+        }
+    }
+    public void updateAirport(String airportCode, String city) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        try {
+            conn = connUtil.getConnection();
+            AirportDAO adao = new AirportDAO(conn);
+            adao.updateAirport(airportCode, city);
+            conn.commit();
+            System.out.println("Flight Deleted");
+        } catch(ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            conn.rollback();
+        } finally {
+            if(conn != null){
+                conn.close();
+            }
         }
     }
 }

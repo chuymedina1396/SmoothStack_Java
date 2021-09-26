@@ -26,8 +26,6 @@ public abstract class BaseDAO<T> {
         pstmt.executeUpdate();
     }
 
-    private void setStatementValues(PreparedStatement ps, Object[] values) {
-    }
 
     public void get(String sql, Object[] vals ) throws ClassNotFoundException, SQLException {
         PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -37,6 +35,25 @@ public abstract class BaseDAO<T> {
             count++;
         }
         pstmt.executeQuery();
+    }
+    public List<T> find(String sql, Object[] vals) throws SQLException, ClassNotFoundException {
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        int count = 1;
+        for(Object o : vals){
+            pstmt.setObject(count,o);
+            count++;
+        }
+        setStatementValues(pstmt, vals);
+        ResultSet rs = pstmt.executeQuery();
+        return extractData(rs);
+    }
+
+    private void setStatementValues(PreparedStatement ps, Object[] values) throws SQLException {
+        if (values != null) {
+            for (int i = 0; i < values.length; i++) {
+                ps.setObject(i + 1, values[i]);
+            }
+        }
     }
 
     public Integer saveReturnPK(String sql, Object[] vals ) throws ClassNotFoundException, SQLException {

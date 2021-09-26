@@ -51,30 +51,4 @@ public class EmployeeService {
     //         }
     //     }
     // }
-    
-    public List<Flight> getAllFlights() throws ClassNotFoundException, SQLException {
-        Connection conn = null;
-        List<Flight> flights = new ArrayList<Flight>();
-        try {
-            conn = connUtil.getConnection();
-            FlightDAO fdao = new FlightDAO(conn);
-            flights = fdao.readFlights();
-            return flights;
-        } catch (SQLException ex) {
-            return Collections.emptyList();
-        }
-    }
-
-    // public List<Flight> readFlightsById(Integer flightId) throws ClassNotFoundException, SQLException {
-    //     Connection conn = null;
-    //     List<Flight> flights = new ArrayList<Flight>();
-    //     try {
-    //         conn = connUtil.getConnection();
-    //         FlightDAO fdao = new FlightDAO(conn);
-    //         flights = fdao.readFlightsById(flightId);
-    //         return flights;
-    //     } catch (SQLException ex) {
-    //         return Collections.emptyList();
-    //     }
-    // }
 }

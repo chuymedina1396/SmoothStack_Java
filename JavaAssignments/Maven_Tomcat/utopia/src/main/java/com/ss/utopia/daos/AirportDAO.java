@@ -21,15 +21,15 @@ public class AirportDAO extends BaseDAO<Airport> {
 			});
 	}
 
-	public void updateAirport(Airport airport) throws ClassNotFoundException, SQLException {
-		save("UPDATE airport set iata_id = ? where city = ?", new Object[] { 
-			airport.getAirportCode(), 
-			airport.getCity() 
+	public void updateAirport(String aiportCode, String city) throws ClassNotFoundException, SQLException {
+		save("UPDATE airport set city = ? where iata_ids = ?", new Object[] { 
+			city, 
+			aiportCode 
 		});
 	}
 
-	public void deleteAirport(Airport airport) throws ClassNotFoundException, SQLException {
-		save("DELETE from airport where id = ?", new Object[] { airport.getAirportCode() });
+	public void deleteAirport(String airportCode) throws ClassNotFoundException, SQLException {
+		save("DELETE from airport where id = ?", new Object[] { airportCode });
 	}
 
 	public List<Airport> readAirports() throws ClassNotFoundException, SQLException {

@@ -27,16 +27,16 @@ public class FlightDAO extends BaseDAO<Flight> {
 			});
 	}
 
-	public void updateFlight(Flight flight) throws ClassNotFoundException, SQLException {
-		save("UPDATE flight set airplane_id = ? WHERE id = ?", new Object[] { 
-			flight.getAirplane().getAirplaneId(),
-			flight.getFlightId()
+	public void updateFlight(Float seatPrice, Integer flightId) throws ClassNotFoundException, SQLException {
+		save("UPDATE flight SET seat_price = ? WHERE id = ?", new Object[] { 
+			seatPrice, 
+			flightId
 		});
 	}
 
-	public void deleteFlight(Flight flight) throws ClassNotFoundException, SQLException {
+	public void deleteFlight(Integer flightId) throws ClassNotFoundException, SQLException {
 		save("DELETE from flight where id = ?", new Object[] { 
-			flight.getFlightId() 
+			flightId
 		});
 	}
 
@@ -56,11 +56,10 @@ public class FlightDAO extends BaseDAO<Flight> {
 		while (rs.next()) {
 			Flight flight = new Flight();
 			Route route = new Route();
-			route.getRouteId();
-			Airplane airport = new Airplane();
+			Airplane airplane = new Airplane();
 			flight.setFlightId(rs.getInt("id"));
 			// flight.setRouteId(route.getRouteId());
-			// flight.getAirplane().setAirplaneId(rs.getInt(airport.getAirplaneId()));
+			// flight.setAirplane(airplane);
 			flight.setDepartureTime(rs.getString("departure_time"));
 			flight.setReservedSeats(rs.getInt("reserved_seats"));
 			flight.setSeatPrice(rs.getFloat("seat_price"));

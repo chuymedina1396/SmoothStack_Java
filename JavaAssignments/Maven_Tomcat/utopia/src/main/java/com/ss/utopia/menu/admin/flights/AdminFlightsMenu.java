@@ -24,10 +24,12 @@ public class AdminFlightsMenu {
 
     public static void AdminFlightsStartMenu() throws ClassNotFoundException, SQLException {
         System.out.println( "Welcome Admin. What would you like to see:" + newLine()
+
         + "  1) Add Flight" + newLine()
         + "  2) Update Flight" + newLine()
         + "  3) Delete Flight" + newLine()
         + "  4) Read Flights" + newLine()
+
     );
 
         Integer selection = getIntInput(); 
@@ -74,19 +76,17 @@ public class AdminFlightsMenu {
             AdminService adminService = new AdminService();
             System.out.println("Enter Flight Id to update");
             Integer flightId = getIntInput();
-            List<Flight> flights = adminService.readFlightsById(flightId);
-            for (Flight flight : flights){  // Which you iterate 
-                System.out.println("Reading flight from database" + "with flight Id " + flightId + newLine() 
-                    + "Flight Id: " 
-                    + flight.getFlightId()
-                    + " | Departure Time: "
-                    + flight.getDepartureTime()
-                    + ") | Reserved Seats: "
-                    + flight.getReservedSeats()
-                    + " | Seat Price: "
-                    + flight.getSeatPrice() 
-                );
-            }
+            System.out.println("Update Seat Price (Enter Float)");
+            Float seatPrice  = getFloatInput();
+            adminService.updateFlight(seatPrice, flightId);
+            AdminFlightsStartMenu();
+        }
+        if(selection == 3){
+            AdminService adminService = new AdminService();
+            System.out.println("Enter Flight Id to delete");
+            Integer flightId = getIntInput();
+            adminService.deleteFlight(flightId);
+            AdminFlightsStartMenu();
         }
         if(selection == 4) {
             System.out.println("1) Get all flights");
@@ -96,9 +96,15 @@ public class AdminFlightsMenu {
             if(optionId == 1){
                 List<Flight> flights = adminService.getAllFlights();
                 for (Flight flight : flights){  // Which you iterate 
-                    System.out.println("Reading flight: " + flight.getFlightId() + " from database" + newLine() 
+                    System.out.println("Reading flight: " 
+                        + flight.getFlightId() 
+                        + " from database" + newLine() 
                         + "Flight Id: " 
                         + flight.getFlightId()
+                        + "Route data"
+                        +flight.getRouteId()
+                        + "Airplane data"
+                        +flight.getAirplane()
                         + " | Departure Time: "
                         + flight.getDepartureTime()
                         + ") | Reserved Seats: "
