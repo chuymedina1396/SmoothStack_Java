@@ -37,7 +37,7 @@ public class BookingUserDAO extends BaseDAO<BookingUser> {
 		});
 	}
 
-	public List<BookingUser> readBookingPayments() throws ClassNotFoundException, SQLException {
+	public List<BookingUser> readBookingUser() throws ClassNotFoundException, SQLException {
 		return read("SELECT * FROM booking_user", null);
 	}
 	

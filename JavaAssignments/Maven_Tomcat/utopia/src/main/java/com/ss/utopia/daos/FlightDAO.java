@@ -17,8 +17,8 @@ public class FlightDAO extends BaseDAO<Flight> {
     
 	public void addFlight(Flight flight) throws ClassNotFoundException, SQLException {
 		save("INSERT INTO flight (route_id, airplane_id, departure_time, reserved_seats, seat_price ) VALUES (?, ?, ?, ?, ?)", new Object[] {
-				flight.getRouteId().getRouteId(),
-				flight.getAirplaneId().getAirplaneId(),
+				flight.getRoute().getRouteId(),
+				flight.getAirplane().getAirplaneId(),
 				flight.getDepartureTime(),
 				flight.getReservedSeats(),
 				flight.getSeatPrice()
@@ -27,7 +27,7 @@ public class FlightDAO extends BaseDAO<Flight> {
 
 	public void updateFlight(Flight flight) throws ClassNotFoundException, SQLException {
 		save("UPDATE flight set airplane_id = ? WHERE id = ?", new Object[] { 
-			flight.getAirplaneId().getAirplaneId(),
+			flight.getAirplane().getAirplaneId(),
 			flight.getFlightId()
 		});
 	}
@@ -39,7 +39,7 @@ public class FlightDAO extends BaseDAO<Flight> {
 	}
 
 	public List<Flight> readFlights() throws ClassNotFoundException, SQLException {
-		return read("SELECT * FROM flight", null);
+		return read("SELECT * FROM flight", new Object[] {});
 	}
 	
 	public List<Flight> readFlightsById(Integer flightId) throws ClassNotFoundException, SQLException {
@@ -54,8 +54,8 @@ public class FlightDAO extends BaseDAO<Flight> {
 		while (rs.next()) {
 			Flight flight = new Flight();
 			flight.setFlightId(rs.getInt("id"));
-			flight.getRouteId().setRouteId(rs.getInt("route_id"));
-			flight.getAirplaneId().setAirplaneId(rs.getInt("airplane_id"));
+			// flight.setRouteId().getRouteId(rs.getInt("route_id"));
+			// flight.getAirplane().setAirplaneId(rs.getInt("airplane_id"));
 			flight.setDepartureTime(rs.getString("departure_time"));
 			flight.setReservedSeats(rs.getInt("reserved_seats"));
 			flight.setSeatPrice(rs.getFloat("seat_price"));

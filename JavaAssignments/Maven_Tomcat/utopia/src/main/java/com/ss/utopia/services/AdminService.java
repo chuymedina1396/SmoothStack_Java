@@ -4,6 +4,7 @@ package com.ss.utopia.services;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
+import java.util.ArrayList;
 import java.sql.Connection;
 
 //Utilities
@@ -25,12 +26,6 @@ import com.ss.utopia.models.Flight;
 public class AdminService {
     
     ConnectionUtil connUtil = new ConnectionUtil();
-
-    private FlightDAO flightDAO;
-
-    // public AdminService(FlightDAO dao) {
-    //     this.flightDAO = dao;
-    // }
 
     // To add a flight, we need the route id, the airplane id, the departure_time, reserved_seats, and the seat_price
     public String addFlight(Route route, Airplane airplane) throws ClassNotFoundException, SQLException {
@@ -55,8 +50,13 @@ public class AdminService {
     }
     
     public List<Flight> getAllFlights() throws ClassNotFoundException, SQLException {
+        Connection conn = null;
+        List<Flight> flights = new ArrayList<Flight>();
         try {
-            return flightDAO.readFlights();
+            conn = connUtil.getConnection();
+            FlightDAO fdao = new FlightDAO(conn);
+            flights = fdao.readFlights();
+            return flights;
         } catch (SQLException ex) {
             return Collections.emptyList();
         }
