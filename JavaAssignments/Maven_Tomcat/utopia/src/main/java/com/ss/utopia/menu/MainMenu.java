@@ -1,6 +1,7 @@
 package com.ss.utopia.menu;
 
 import com.ss.utopia.menu.admin.AdminMenu;
+import com.ss.utopia.menu.employee.EmployeeMenu;
 
 import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
 
@@ -19,10 +20,10 @@ public class MainMenu {
             + " 3) Traveler" + newLine()
             );
             Integer selection = getIntInput();
-            // if(getIntInput() == 1){
-            //     EmployeeMenu employeeMenu = new EmployeeMenu();
-            //     employeeMenu.adminMenuOption();
-            // };
+            if(selection == 1){
+                EmployeeMenu employeeMenu = new EmployeeMenu();
+                employeeMenu.employeeMenuOption();
+            };
             if(selection == 2) {
                 AdminMenu adminMenu = new AdminMenu();
                 adminMenu.adminMenuOptions();

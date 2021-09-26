@@ -89,22 +89,44 @@ public class AdminFlightsMenu {
             }
         }
         if(selection == 4) {
+            System.out.println("1) Get all flights");
+            System.out.println("2) Get flight by id");
+            Integer optionId = getIntInput(); 
             AdminService adminService = new AdminService();
-            List<Flight> flights = adminService.getAllFlights();
-            for (Flight flight : flights){  // Which you iterate 
-                System.out.println("Reading flights from database" + newLine() 
-                    + "Flight Id: " 
-                    + flight.getFlightId()
-                    + " | Departure Time: "
-                    + flight.getDepartureTime()
-                    + ") | Reserved Seats: "
-                    + flight.getReservedSeats()
-                    + " | Seat Price: "
-                    + flight.getSeatPrice() 
-                );
+            if(optionId == 1){
+                List<Flight> flights = adminService.getAllFlights();
+                for (Flight flight : flights){  // Which you iterate 
+                    System.out.println("Reading flight: " + flight.getFlightId() + " from database" + newLine() 
+                        + "Flight Id: " 
+                        + flight.getFlightId()
+                        + " | Departure Time: "
+                        + flight.getDepartureTime()
+                        + ") | Reserved Seats: "
+                        + flight.getReservedSeats()
+                        + " | Seat Price: "
+                        + flight.getSeatPrice() + newLine()
+                    );
+                }
+                AdminFlightsStartMenu();
             }
-
+            if(optionId == 2){
+                System.out.println("Enter a Flight Id to read that entry.");
+                Integer flightId = getIntInput();
+                List<Flight> flights = adminService.readFlightsById(flightId);
+                for (Flight flight : flights){  // Which you iterate 
+                    System.out.println("Reading flights from database" + newLine() 
+                        + "Flight Id: " 
+                        + flight.getFlightId()
+                        + " | Departure Time: "
+                        + flight.getDepartureTime()
+                        + ") | Reserved Seats: "
+                        + flight.getReservedSeats()
+                        + " | Seat Price: "
+                        + flight.getSeatPrice()  + newLine()
+                    );
+                }
+                AdminFlightsStartMenu();
+            }
         }
     }
-
 }
