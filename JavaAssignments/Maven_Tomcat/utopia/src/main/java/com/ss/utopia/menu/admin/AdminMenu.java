@@ -1,14 +1,15 @@
 package com.ss.utopia.menu.admin;
 
-import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
+
 
 import java.sql.SQLException;
 
+import com.ss.utopia.menu.admin.adminCrud.AdminAirportMenu;
+import com.ss.utopia.menu.admin.adminCrud.AdminFlightsMenu;
+
 import static com.ss.utopia.utilities.ScannerUtil.getIntInput;
+import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
 
-
-import com.ss.utopia.menu.admin.flights.AdminFlightsMenu;
-import com.ss.utopia.menu.admin.airports.AdminAirportsMenu;
 
 
 public class AdminMenu {
@@ -28,10 +29,12 @@ public class AdminMenu {
             Integer selection = getIntInput();
 
             if(selection == 1){
-                AdminFlightsMenu.AdminFlightsStartMenu();
+                AdminFlightsMenu adminFlightMenu = new AdminFlightsMenu();
+                adminFlightMenu.AdminFlightsStartMenu();
             }
             if(selection == 4){
-                AdminAirportsMenu.AdminAirportsStartMenu();
+                AdminAirportMenu airportMenu = new AdminAirportMenu();
+                airportMenu.AdminAirportsStartMenu();
             }
     }
     

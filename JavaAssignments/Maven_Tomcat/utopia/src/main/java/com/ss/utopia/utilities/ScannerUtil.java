@@ -11,6 +11,7 @@ public class ScannerUtil {
     static Scanner scan = new Scanner(System.in);
 
     public static String getStringInput(){
+        scan.nextLine();
         String userInput = scan.nextLine();
         return userInput;
     }

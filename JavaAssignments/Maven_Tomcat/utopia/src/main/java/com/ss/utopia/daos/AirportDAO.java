@@ -33,11 +33,11 @@ public class AirportDAO extends BaseDAO<Airport> {
 	}
 
 	public List<Airport> readAirports() throws ClassNotFoundException, SQLException {
-		return read("SELECT * FROM airport", null);
+		return read("SELECT * FROM airport", new Object[] {});
 	}
 	
 	public List<Airport> readAirportsByAirportCode(String airportCode) throws ClassNotFoundException, SQLException {
-		return read("SELECT * FROM airport WHERE iata_d = ?", 
+		return read("SELECT * FROM airport WHERE iata_id = ?", 
 						new Object[] { airportCode });
 	}
 

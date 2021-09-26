@@ -1,16 +1,4 @@
-package com.ss.utopia.menu.admin.flights;
-
-import java.util.List;
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import com.ss.utopia.daos.FlightDAO;
-
-import com.ss.utopia.models.Route;
-import com.ss.utopia.services.AdminService;
-import com.ss.utopia.models.Airplane;
-import com.ss.utopia.models.Airport;
-import com.ss.utopia.models.Flight;
+package com.ss.utopia.menu.admin.adminCrud;
 
 // import com.ss.utopia.services.AdminService;
 
@@ -18,12 +6,16 @@ import com.ss.utopia.models.Flight;
 import static com.ss.utopia.utilities.ScannerUtil.*;
 import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
 
+import java.sql.SQLException;
+import java.util.List;
 
-import static com.ss.utopia.utilities.ScannerUtil.getDateInput;
+import com.ss.utopia.models.Airport;
+import com.ss.utopia.services.AdminService;
 
-public class AdminAirportsMenu {
 
-    public static void AdminAirportsStartMenu() throws ClassNotFoundException, SQLException {
+public class AdminAirportMenu {
+
+    public void AdminAirportsStartMenu() throws ClassNotFoundException, SQLException {
         System.out.println( "Welcome Admin. What would you like to see:" + newLine()
 
         + "  1) Add Airport" + newLine()
@@ -61,13 +53,26 @@ public class AdminAirportsMenu {
             AdminService adminService = new AdminService();
             if(optionId == 1){
                 List<Airport> airports = adminService.getAllAirports();
+                System.out.println("Reading airports from database");
                 for (Airport airport : airports){  
-                    System.out.println("Reading Airport: "+
-                        airport.getAirportCode()+
-                        airport.getCity()
+                    System.out.println(airport.getAirportCode() +") "  + airport.getCity());
+                }
+                AdminAirportsStartMenu();
+            }
+            if(optionId == 2){
+                System.out.println("Enter a Airport code to read that entry.");
+                String airportCode = getStringInput();
+                List<Airport> airports = adminService.readAirportsByAirportCode(airportCode);
+                for (Airport airport : airports){  // Which you iterate 
+                    System.out.println("Reading Airport from database" + newLine() 
+                        + "Airport Id: " 
+                        + airport.getAirportCode()
+                        + " | City: "
+                        + airport.getCity()
+                      
                     );
                 }
-                AdminAirportsStartMenu();;
+                AdminAirportsStartMenu();
             }
             
         }

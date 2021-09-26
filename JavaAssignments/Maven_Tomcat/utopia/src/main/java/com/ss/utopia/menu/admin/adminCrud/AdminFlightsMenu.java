@@ -1,4 +1,4 @@
-package com.ss.utopia.menu.admin.flights;
+package com.ss.utopia.menu.admin.adminCrud;
 
 import java.util.List;
 import java.sql.Connection;
@@ -22,14 +22,13 @@ import static com.ss.utopia.utilities.ScannerUtil.getDateInput;;
 
 public class AdminFlightsMenu {
 
-    public static void AdminFlightsStartMenu() throws ClassNotFoundException, SQLException {
+    public void AdminFlightsStartMenu() throws ClassNotFoundException, SQLException {
         System.out.println( "Welcome Admin. What would you like to see:" + newLine()
 
         + "  1) Add Flight" + newLine()
         + "  2) Update Flight" + newLine()
         + "  3) Delete Flight" + newLine()
         + "  4) Read Flights" + newLine()
-
     );
 
         Integer selection = getIntInput(); 

@@ -51,6 +51,7 @@ public class AdminService {
             }
         }
     }
+    
     public void updateFlight(Float seatPrice, Integer flightId) throws ClassNotFoundException, SQLException{
         Connection conn = null;
         try {
@@ -94,6 +95,7 @@ public class AdminService {
             return Collections.emptyList();
         }
     }
+    
     public void deleteFlight(Integer flightId) throws ClassNotFoundException, SQLException{
         Connection conn = null;
         try {
@@ -113,6 +115,7 @@ public class AdminService {
     }
 
     // ** ALL SERVICE METHODS FOR AIRPORT OPERATIONS ** /
+    
     public List<Airport> getAllAirports() throws ClassNotFoundException, SQLException{
         Connection conn = null;
         List<Airport> airports = new ArrayList<Airport>();
@@ -120,6 +123,18 @@ public class AdminService {
             conn = connUtil.getConnection();
             AirportDAO adao = new AirportDAO(conn);
             airports = adao.readAirports();
+            return airports;
+        } catch (SQLException ex) {
+            return Collections.emptyList();
+        }
+    }
+    public List<Airport> readAirportsByAirportCode(String airportCode) throws ClassNotFoundException, SQLException {
+        Connection conn = null;
+        List<Airport> airports = new ArrayList<Airport>();
+        try {
+            conn = connUtil.getConnection();
+            AirportDAO adao = new AirportDAO(conn);
+            airports = adao.readAirportsByAirportCode(airportCode);
             return airports;
         } catch (SQLException ex) {
             return Collections.emptyList();
@@ -142,6 +157,7 @@ public class AdminService {
             }
         }
     }
+    
     public void updateAirport(String airportCode, String city) throws ClassNotFoundException, SQLException{
         Connection conn = null;
         try {
