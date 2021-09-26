@@ -18,7 +18,7 @@ import static com.ss.utopia.utilities.ScannerUtil.*;
 import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
 
 
-// import static com.ss.utopia.utilities.ScannerUtil.getDateInput;;
+import static com.ss.utopia.utilities.ScannerUtil.getDateInput;;
 
 public class AdminFlightsMenu {
 
@@ -42,11 +42,14 @@ public class AdminFlightsMenu {
             System.out.println("Enter a Route ID for the flight");
             Integer route_id = getIntInput();
             route.setRouteId(route_id);
+            route.getDestAirport();
+            route.getOriginAirport();
+            ;
 
-        
             System.out.println("Enter Airplane ID for Flight");
             Integer airplane_id = getIntInput();
             airplane.setAirplaneId(airplane_id);
+            flight.getAirplane().setAirplaneId(airplane.getAirplaneId());
 
             System.out.println("Enter Departure time for flight");
             String departure_time = getDateInput();
@@ -63,8 +66,26 @@ public class AdminFlightsMenu {
             // AdminService adminService = new AdminService();
             // adminService.addFlight(route, airplane);
 
-            System.out.println("Add this data: " +route + " Route Data " +" ** Airplane Data **  "+ airplane+ " **FLIGHT DATA***" +flight+ " to the addFlight service!");
+            System.out.println("Add this data: " + route + " Route Data " +" ** Airplane Data **  "+ airplane+ " **FLIGHT DATA***" +flight+ " to the addFlight service!");
 
+        }
+        if(selection == 2){
+            AdminService adminService = new AdminService();
+            System.out.println("Enter Flight Id to update");
+            Integer flightId = getIntInput();
+            List<Flight> flights = adminService.readFlightsById(flightId);
+            for (Flight flight : flights){  // Which you iterate 
+                System.out.println("Reading flight from database" + "with flight Id " + flightId + newLine() 
+                    + "Flight Id: " 
+                    + flight.getFlightId()
+                    + " | Departure Time: "
+                    + flight.getDepartureTime()
+                    + ") | Reserved Seats: "
+                    + flight.getReservedSeats()
+                    + " | Seat Price: "
+                    + flight.getSeatPrice() 
+                );
+            }
         }
         if(selection == 4) {
             AdminService adminService = new AdminService();
@@ -78,10 +99,10 @@ public class AdminFlightsMenu {
                     + ") | Reserved Seats: "
                     + flight.getReservedSeats()
                     + " | Seat Price: "
-                    + flight.getSeatPrice()
-                    
+                    + flight.getSeatPrice() 
                 );
             }
+
         }
     }
 

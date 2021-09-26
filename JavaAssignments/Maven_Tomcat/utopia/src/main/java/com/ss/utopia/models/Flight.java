@@ -10,21 +10,19 @@ public class Flight{
     private Integer flightId;
 
     // 1-1 Relationships
-    private Route route;
+    private Route routeId;
     private Airplane airplane;
 
     private String departureTime;
     private Integer reservedSeats;
     private Float seatPrice;
 
-
-
     public Flight() {
     }
 
-    public Flight(Integer flightId, Route route, Airplane airplane, String departureTime, Integer reservedSeats, Float seatPrice) {
+    public Flight(Integer flightId, Route routeId, Airplane airplane, String departureTime, Integer reservedSeats, Float seatPrice) {
         this.flightId = flightId;
-        this.route = route;
+        this.routeId = routeId;
         this.airplane = airplane;
         this.departureTime = departureTime;
         this.reservedSeats = reservedSeats;
@@ -39,12 +37,12 @@ public class Flight{
         this.flightId = flightId;
     }
 
-    public Route getRoute() {
-        return this.route;
+    public Route getRouteId() {
+        return this.routeId;
     }
 
-    public void setRoute(Route route) {
-        this.route = route;
+    public void setRouteId(Route routeId) {
+        this.routeId = routeId;
     }
 
     public Airplane getAirplane() {
@@ -84,8 +82,8 @@ public class Flight{
         return this;
     }
 
-    public Flight route(Route route) {
-        setRoute(route);
+    public Flight routeId(Route routeId) {
+        setRouteId(routeId);
         return this;
     }
 
@@ -117,25 +115,26 @@ public class Flight{
             return false;
         }
         Flight flight = (Flight) o;
-        return Objects.equals(flightId, flight.flightId) && Objects.equals(route, flight.route) && Objects.equals(airplane, flight.airplane) && Objects.equals(departureTime, flight.departureTime) && Objects.equals(reservedSeats, flight.reservedSeats) && Objects.equals(seatPrice, flight.seatPrice);
+        return Objects.equals(flightId, flight.flightId) && Objects.equals(routeId, flight.routeId) && Objects.equals(airplane, flight.airplane) && Objects.equals(departureTime, flight.departureTime) && Objects.equals(reservedSeats, flight.reservedSeats) && Objects.equals(seatPrice, flight.seatPrice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(flightId, route, airplane, departureTime, reservedSeats, seatPrice);
+        return Objects.hash(flightId, routeId, airplane, departureTime, reservedSeats, seatPrice);
     }
 
     @Override
     public String toString() {
         return "{" +
             " flightId='" + getFlightId() + "'" +
-            ", route='" + getRoute() + "'" +
+            ", routeId='" + getRouteId() + "'" +
             ", airplane='" + getAirplane() + "'" +
             ", departureTime='" + getDepartureTime() + "'" +
             ", reservedSeats='" + getReservedSeats() + "'" +
             ", seatPrice='" + getSeatPrice() + "'" +
             "}";
     }
+    
     
 
     
