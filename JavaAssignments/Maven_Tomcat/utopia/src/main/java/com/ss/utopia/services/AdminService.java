@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 import java.sql.Connection;
-import java.sql.Date;
 
 //Utilities
 import com.ss.utopia.utilities.ConnectionUtil;
@@ -19,9 +18,11 @@ import com.ss.utopia.daos.FlightDAO;
 import com.ss.utopia.daos.AirplaneDAO;
 import com.ss.utopia.daos.PassengerDAO;
 import com.ss.utopia.daos.UserDAO;
-
+import com.ss.utopia.daos.UserRoleDAO;
 //Models
 import com.ss.utopia.models.Route;
+import com.ss.utopia.models.UserRole;
+import com.ss.utopia.models.User;
 import com.ss.utopia.models.Airplane;
 import com.ss.utopia.models.Airport;
 import com.ss.utopia.models.Booking;
@@ -118,6 +119,7 @@ public class AdminService {
     }
 
     // ** SERVICE METHODS FOR AIRPORT OPERATIONS ** /
+
     public void addAirport(String airportCode, String city )throws ClassNotFoundException, SQLException{
         Connection conn = null;
         try {
@@ -243,38 +245,38 @@ public class AdminService {
             return Collections.emptyList();
         }
     }
-    // public List<Booking> getBookingById(Integer bookingId) throws ClassNotFoundException, SQLException{
-    //     Connection conn = null;
-    //     List<Booking> bookings = new ArrayList<Booking>();
-    //     try {
-    //         conn = connUtil.getConnection();
-    //         BookingDAO bdao = new BookingDAO(conn);
-    //         bookings = bdao.readBookingsById(bookingId);
-    //         return bookings;
-    //     } catch (SQLException ex) {
-    //         return Collections.emptyList();
-    //     }
-    // }
-    // public void deleteBooking(Integer bookingId) throws ClassNotFoundException, SQLException{
-    //     Connection conn = null;
-    //     try {
-    //         conn = connUtil.getConnection();
-    //         BookingDAO bdao = new BookingDAO(conn);
-    //         bdao.deleteBooking(bookingId);
-    //         conn.commit();
-    //         System.out.println("Booking Deleted");
-    //     } catch(ClassNotFoundException | SQLException e) {
-    //         e.printStackTrace();
-    //         conn.rollback();
-    //     } finally {
-    //         if(conn != null){
-    //             conn.close();
-    //         }
-    //     }
-    // }
+    public List<Booking> getBookingById(Integer bookingId) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        List<Booking> bookings = new ArrayList<Booking>();
+        try {
+            conn = connUtil.getConnection();
+            BookingDAO bdao = new BookingDAO(conn);
+            bookings = bdao.readBookingsById(bookingId);
+            return bookings;
+        } catch (SQLException ex) {
+            return Collections.emptyList();
+        }
+    }
+    public void deleteBooking(Integer bookingId) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        try {
+            conn = connUtil.getConnection();
+            BookingDAO bdao = new BookingDAO(conn);
+            bdao.deleteBooking(bookingId);
+            conn.commit();
+            System.out.println("Booking Deleted");
+        } catch(ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            conn.rollback();
+        } finally {
+            if(conn != null){
+                conn.close();
+            }
+        }
+    }
 
-    
     // ** SERVICE METHODS FOR PASSENGER OPERATIONS ** /
+
     public void addPassenger(Integer bookingId, String givenName, String familyName, String dob, String gender, String address) throws ClassNotFoundException, SQLException{
         Connection conn = null;
         try {
@@ -352,15 +354,15 @@ public class AdminService {
         }
     }
     
-    // ** SERVICE METHODS FOR EMPLOYEES and TRAVELLERS OPERATIONS ** /
-    public void addUser(Integer roleId, String givenName, String familyName, String userName, String email, String password, String phone) throws ClassNotFoundException, SQLException{
+    // ** SERVICE METHODS FOR EMPLOYEES and TRAVELLERS OPERATIONS USING USERDAO ** /
+    public void addUser(Integer roleId, String givenName, String familyName, String userName, String email, String password, String phone) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         try {
             conn = connUtil.getConnection();
             UserDAO Udao = new UserDAO(conn);
             Udao.addUser(roleId, givenName, familyName, userName, email, password, phone);
             conn.commit();
-            System.out.println("USER added");
+            System.out.println("User added!" + "with the RoleId " + roleId);
         } catch(ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             conn.rollback();
@@ -429,8 +431,16 @@ public class AdminService {
             }
         }
     }
-    
-
-
-
+    public List<User> getUserByRole(Integer roleId) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        List<User> users = new ArrayList<User>();
+        try {
+            conn = connUtil.getConnection();
+            UserDAO udao = new UserDAO(conn);
+            users = udao.readUsersByRoleId(roleId);
+            return users;
+        } catch (SQLException ex) {
+            return Collections.emptyList();
+        }
+    }
 }

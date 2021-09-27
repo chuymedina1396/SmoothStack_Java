@@ -33,9 +33,9 @@ public class AdminBookingMenu extends ColorUtil {
     );
 
         Integer selection = getIntInput(); 
-
+        AdminService adminService = new AdminService();
+        
         if(selection == 1){
-            AdminService adminService = new AdminService();
             System.out.println("Enter 0 for is_active, Enter 1 for not_active");
             Integer isActiveValue = getIntInput();
             String confirmationCode = getConfirmationCode();
@@ -44,7 +44,6 @@ public class AdminBookingMenu extends ColorUtil {
 
         }
         if(selection == 2){
-            AdminService adminService = new AdminService();
             System.out.println("Enter Booking Id to update Booking");
             Integer bookingId = getIntInput();
             System.out.println("Update the isActive column of that Booking. 0 for InActive, 1 for Active");
@@ -52,45 +51,40 @@ public class AdminBookingMenu extends ColorUtil {
             adminService.updateBooking(bookingId, isActive);
             AdminBookingsStartMenu();
         }
-        // if(selection == 3){
-        //     AdminService adminService = new AdminService();
-        //     System.out.println("Enter Booking Id to delete");
-        //     Integer bookingId = getIntInput();
-        //     adminService.deleteBooking(bookingId);
-        //     AdminBookingsStartMenu();
-        // }
+        if(selection == 3){
+            System.out.println("Enter Booking Id to delete");
+            Integer bookingId = getIntInput();
+            adminService.deleteBooking(bookingId);
+            AdminBookingsStartMenu();
+        }
         if(selection == 4) {
             System.out.println("1) Get all Bookings");
             System.out.println("2) Get Booking by Id");
             Integer optionId = getIntInput(); 
-            AdminService adminService = new AdminService();
             if(optionId == 1){
                 List<Booking> bookings = adminService.getAllBookings();
-                for (Booking booking : bookings){  // Which you iterate 
+                for (Booking booking : bookings){ 
                     System.out.println("Reading Booking: " + newLine()
                         + ANSI_GREEN + booking.getBookingId() + " ) "
-                        + ANSI_YELLOW + "Given Name: " + booking.getBookingId() + " "
+                        + ANSI_YELLOW + "Booking ID: " + booking.getBookingId() + " "
                         + booking.getIsActive()
-                        + booking.getConfirmationCode()
-                        
+                        + booking.getConfirmationCode()    
                     );
                 }
                 AdminBookingsStartMenu();
             }
             if(optionId == 2){
                 System.out.println("Reading a booking");
-                // Integer bookingId = getIntInput();
-                // List<Booking> bookings = adminService.getBookingById(bookingId);
-                // for (Booking booking : bookings){  // Which you iterate 
-                //     System.out.println("Reading Booking: " + newLine()
-                //         + ANSI_GREEN + booking.getBookingId() + " ) "
-                //         + ANSI_YELLOW + "Given Name: " + booking.getGivenName() + " "
-                //         + "FamilyName: " + booking.getFamilyName() + " "
-                //         + "Gender: " + booking.getGender()
-                //         + "Address: " + booking.getAddress() + newLine()
-                //         + "Booking Object: " + booking.getBookingId() 
-                //     );
-                // }
+                Integer bookingId = getIntInput();
+                List<Booking> bookings = adminService.getBookingById(bookingId);
+                for (Booking booking : bookings){
+                    System.out.println("Reading Booking: " + newLine()
+                        + ANSI_GREEN + booking.getBookingId() + " ) "
+                        + ANSI_YELLOW + "Booking ID: " + booking.getBookingId()+ " "
+                        + "IsActive: " + booking.getIsActive()
+                        + "Confirmation Code" + booking.getConfirmationCode()
+                    );
+                }
                 AdminBookingsStartMenu();
             } 
         }

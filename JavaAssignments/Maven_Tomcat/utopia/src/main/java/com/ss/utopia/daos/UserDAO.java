@@ -47,6 +47,11 @@ public class UserDAO extends BaseDAO<User> {
 			userId 
 		});
 	}
+	public List<User> readUsersByRoleId(Integer userId) throws ClassNotFoundException, SQLException {
+		return read("SELECT * FROM user WHERE role_id = ?", new Object[] { 
+			userId 
+		});
+	}
 
 	@Override
 	public List<User> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {

@@ -14,9 +14,9 @@ public class UserRoleDAO extends BaseDAO<UserRole> {
 		super(conn);
 	}
 
-	public void addUserRole(UserRole userRole) throws ClassNotFoundException, SQLException {
-		save("INSERT INTO user_role (origin_id, destination_id) VALUES (?, ?)", new Object[] {
-				
+	public void addUserRole(String userRole) throws ClassNotFoundException, SQLException {
+		save("INSERT INTO user_role (name) VALUES (?)", new Object[] {
+				userRole
 			});
 	}
 

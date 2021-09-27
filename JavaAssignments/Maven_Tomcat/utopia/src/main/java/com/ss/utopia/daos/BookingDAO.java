@@ -32,7 +32,7 @@ public class BookingDAO extends BaseDAO<Booking> {
 		return read("SELECT * FROM booking limit 10", new Object[] {});
 	}
 	
-	public List<Booking> readBookingsById(String bookingId) throws ClassNotFoundException, SQLException {
+	public List<Booking> readBookingsById(Integer bookingId) throws ClassNotFoundException, SQLException {
 		return read("SELECT * FROM booking WHERE id = ? ", 
 						new Object[] { bookingId  });
 	}

@@ -1,7 +1,6 @@
 package com.ss.utopia.menu.employee;
 
 import static com.ss.utopia.utilities.ScannerUtil.getIntInput;
-import static com.ss.utopia.utilities.ScannerUtil.getIntInput;;
 import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
 import java.util.List;
 import java.sql.SQLException;
