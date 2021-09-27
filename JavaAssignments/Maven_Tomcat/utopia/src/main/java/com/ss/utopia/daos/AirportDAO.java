@@ -14,10 +14,10 @@ public class AirportDAO extends BaseDAO<Airport> {
 		super(conn);
 	}
 
-	public void addAirport(Airport airport) throws ClassNotFoundException, SQLException {
+	public void addAirport(String airport, String city) throws ClassNotFoundException, SQLException {
 		save("INSERT INTO airport (iata_id, city) VALUES (?, ?)", new Object[] {
-				airport.getAirportCode(), 
-				airport.getCity()
+				airport,
+				city
 			});
 	}
 

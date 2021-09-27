@@ -18,6 +18,7 @@ public class MainMenu {
             + " 1) Employee" + newLine()
             + " 2) Administrator" + newLine()
             + " 3) Traveler" + newLine()
+            + " 4) Quit" + newLine()
             );
             Integer selection = getIntInput();
             if(selection == 1){
@@ -32,6 +33,10 @@ public class MainMenu {
             //     AdminMenu adminMenu = new AdminMenu();
             //     adminMenu.adminMenuOption();
             // };
+            if(selection == 4) {
+                System.out.println("Exiting Program...");
+                System.exit(0);
+            };
         // return "Welcome to the Utopia Airlines Managment System. Which category of a user are you: ";
     }
 }

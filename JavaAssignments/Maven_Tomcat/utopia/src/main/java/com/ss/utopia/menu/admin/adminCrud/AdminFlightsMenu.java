@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.ss.utopia.daos.FlightDAO;
-
+import com.ss.utopia.menu.admin.AdminMenu;
 import com.ss.utopia.models.Route;
 import com.ss.utopia.services.AdminService;
 import com.ss.utopia.models.Airplane;
@@ -29,6 +29,7 @@ public class AdminFlightsMenu {
         + "  2) Update Flight" + newLine()
         + "  3) Delete Flight" + newLine()
         + "  4) Read Flights" + newLine()
+        + "  5) Quit to Previous" + newLine()
     );
 
         Integer selection = getIntInput(); 
@@ -132,6 +133,9 @@ public class AdminFlightsMenu {
                 }
                 AdminFlightsStartMenu();
             }
+        }
+        if(selection == 5){
+           AdminMenu.adminMenuOptions();
         }
     }
 }

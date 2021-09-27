@@ -31,7 +31,6 @@ public class EmployeeMenu {
                     // + flight.getRouteId().getRouteId().toString()
                     + " | Seat Price: "
                     + flight.getSeatPrice() + newLine()
-                    
                 );
             }
             System.out.println("Enter the ID for the flight you manage from the list above"); 

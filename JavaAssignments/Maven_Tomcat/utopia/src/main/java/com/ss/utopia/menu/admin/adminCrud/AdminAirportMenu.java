@@ -9,11 +9,13 @@ import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.ss.utopia.menu.admin.AdminMenu;
 import com.ss.utopia.models.Airport;
 import com.ss.utopia.services.AdminService;
+import com.ss.utopia.utilities.ColorUtil;
 
 
-public class AdminAirportMenu {
+public class AdminAirportMenu extends ColorUtil{
 
     public void AdminAirportsStartMenu() throws ClassNotFoundException, SQLException {
         System.out.println( "Welcome Admin. What would you like to see:" + newLine()
@@ -22,19 +24,28 @@ public class AdminAirportMenu {
         + "  2) Update Airport" + newLine()
         + "  3) Delete Airport" + newLine()
         + "  4) Read Airport" + newLine()
+        + "  5) Quit to previous" + newLine()
 
     );
 
         Integer selection = getIntInput(); 
 
         if(selection == 1){
-            System.out.println("Add airport");
+            AdminService adminService = new AdminService();
+            System.out.println("Enter Airport Code to add Airport");
+            String code = getStringInput();
+            System.out.println("Enter the City to add the City to the Airport");
+            System.out.println(ANSI_YELLOW + "Enter twice to confirm" + ANSI_GREEN);
+            String city  = getStringInput();
+            adminService.addAirport(code, city);
+            AdminAirportsStartMenu();
         }
         if(selection == 2){
             AdminService adminService = new AdminService();
             System.out.println("Enter Airport Code to update Airport");
             String code = getStringInput();
             System.out.println("Update the City of that airport.");
+            System.out.println(ANSI_YELLOW + "Enter twice to confirm" + ANSI_GREEN);
             String city  = getStringInput();
             adminService.updateAirport(code, city);
             AdminAirportsStartMenu();
@@ -75,6 +86,9 @@ public class AdminAirportMenu {
                 AdminAirportsStartMenu();
             }
             
+        }
+        if(selection == 5){
+            AdminMenu.adminMenuOptions();
         }
     }
 }

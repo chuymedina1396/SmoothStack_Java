@@ -1,9 +1,13 @@
 package com.ss.utopia.utilities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import java.util.GregorianCalendar;
+
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class ScannerUtil {
@@ -26,9 +30,10 @@ public class ScannerUtil {
     public static String getDateInput(){
         LocalDateTime now = LocalDateTime.now();
         System.out.println("Before Formatting: " + now);  
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");  
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");  
         String formatDateTime = now.format(formatter); 
         return formatDateTime;
     }
+    
 
 }

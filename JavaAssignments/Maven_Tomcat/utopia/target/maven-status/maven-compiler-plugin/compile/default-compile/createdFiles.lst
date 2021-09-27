@@ -29,6 +29,7 @@ com/ss/utopia/menu/admin/adminCrud/AdminAirportMenu.class
 com/ss/utopia/daos/FlightBookingDAO.class
 com/ss/utopia/daos/BaseDAO.class
 com/ss/utopia/menu/traveller/TravellerMenu.class
+com/ss/utopia/utilities/ColorUtil.class
 com/ss/utopia/menu/admin/adminCrud/AdminFlightsMenu.class
 com/ss/utopia/daos/PassengerDAO.class
 com/ss/utopia/models/UserRole.class
