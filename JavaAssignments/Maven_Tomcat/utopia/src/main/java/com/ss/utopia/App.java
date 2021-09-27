@@ -6,8 +6,12 @@ import com.ss.utopia.menu.MainMenu;
 
 public class App 
 {
-    public static void main( String[] args ) throws ClassNotFoundException, SQLException
-    {
-        MainMenu.getUserCategory();
+    public static void main( String[] args ) {
+        try{
+            MainMenu.getUserCategory();
+        }
+        catch(ClassNotFoundException | SQLException e){
+            System.out.println(e);
+        }
     }
 }

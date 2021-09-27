@@ -29,8 +29,8 @@ public class ScannerUtil {
     }  
 
     public static String getStringInput(){
-        String userInput = scan.nextLine();
         scan.nextLine();
+        String userInput = scan.nextLine();
         return userInput;
     }
     public static Integer getIntInput(){
