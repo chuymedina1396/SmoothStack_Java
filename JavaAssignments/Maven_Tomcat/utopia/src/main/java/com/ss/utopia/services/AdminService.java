@@ -14,14 +14,17 @@ import com.ss.utopia.utilities.ConnectionUtil;
 //DAOS
 import com.ss.utopia.daos.RouteDAO;
 import com.ss.utopia.daos.AirportDAO;
+import com.ss.utopia.daos.BookingDAO;
 import com.ss.utopia.daos.FlightDAO;
 import com.ss.utopia.daos.AirplaneDAO;
 import com.ss.utopia.daos.PassengerDAO;
+import com.ss.utopia.daos.UserDAO;
 
 //Models
 import com.ss.utopia.models.Route;
 import com.ss.utopia.models.Airplane;
 import com.ss.utopia.models.Airport;
+import com.ss.utopia.models.Booking;
 import com.ss.utopia.models.Flight;
 import com.ss.utopia.models.Passenger;
 
@@ -32,7 +35,7 @@ public class AdminService {
 
     //** SERVICE METHODS FOR FLIGHT OPERATIONS ** /
 
-    public String addFlight(Route route, Airplane airplane, Flight flight) throws ClassNotFoundException, SQLException {
+    public String addFlight(Flight flight, Route route, Airplane airplane) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         try{
             conn = connUtil.getConnection();
@@ -193,6 +196,83 @@ public class AdminService {
     
     // ** SERVICE METHODS FOR BOOKING OPERATIONS ** /
 
+    public void addBooking(Integer isActive, String confirmationCode) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        try {
+            conn = connUtil.getConnection();
+            BookingDAO bdao = new BookingDAO(conn);
+            bdao.addBooking(isActive, confirmationCode);
+            conn.commit();
+            System.out.println("Flight Updated");
+        } catch(ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            conn.rollback();
+        } finally {
+            if(conn != null){
+                conn.close();
+            }
+        }
+    }
+    public void updateBooking(Integer bookingId, Integer isActive) throws 
+    ClassNotFoundException, SQLException{
+        Connection conn = null;
+        try {
+            conn = connUtil.getConnection();
+            BookingDAO bdao = new BookingDAO(conn);
+            bdao.updateBooking(bookingId, isActive);
+            conn.commit();
+            System.out.println("Flight Updated");
+        } catch(ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            conn.rollback();
+        } finally {
+            if(conn != null){
+                conn.close();
+            }
+        }
+    }
+    public List<Booking> getAllBookings() throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        List<Booking> bookings = new ArrayList<Booking>();
+        try {
+            conn = connUtil.getConnection();
+            BookingDAO bdao = new BookingDAO(conn);
+            bookings = bdao.readBookings();
+            return bookings;
+        } catch (SQLException ex) {
+            return Collections.emptyList();
+        }
+    }
+    // public List<Booking> getBookingById(Integer bookingId) throws ClassNotFoundException, SQLException{
+    //     Connection conn = null;
+    //     List<Booking> bookings = new ArrayList<Booking>();
+    //     try {
+    //         conn = connUtil.getConnection();
+    //         BookingDAO bdao = new BookingDAO(conn);
+    //         bookings = bdao.readBookingsById(bookingId);
+    //         return bookings;
+    //     } catch (SQLException ex) {
+    //         return Collections.emptyList();
+    //     }
+    // }
+    // public void deleteBooking(Integer bookingId) throws ClassNotFoundException, SQLException{
+    //     Connection conn = null;
+    //     try {
+    //         conn = connUtil.getConnection();
+    //         BookingDAO bdao = new BookingDAO(conn);
+    //         bdao.deleteBooking(bookingId);
+    //         conn.commit();
+    //         System.out.println("Booking Deleted");
+    //     } catch(ClassNotFoundException | SQLException e) {
+    //         e.printStackTrace();
+    //         conn.rollback();
+    //     } finally {
+    //         if(conn != null){
+    //             conn.close();
+    //         }
+    //     }
+    // }
+
     
     // ** SERVICE METHODS FOR PASSENGER OPERATIONS ** /
     public void addPassenger(Integer bookingId, String givenName, String familyName, String dob, String gender, String address) throws ClassNotFoundException, SQLException{
@@ -212,13 +292,13 @@ public class AdminService {
             }
         }
     }
-    public void updatePassenger(Integer passengerId, Integer newBookingId) throws 
+    public void updatePassenger(Integer bookingId, Integer newBookingId) throws 
     ClassNotFoundException, SQLException{
         Connection conn = null;
         try {
             conn = connUtil.getConnection();
             PassengerDAO pdao = new PassengerDAO(conn);
-            pdao.updatePassenger(passengerId, newBookingId);
+            pdao.updatePassenger(bookingId, newBookingId);
             conn.commit();
             System.out.println("Flight Updated");
         } catch(ClassNotFoundException | SQLException e) {
@@ -232,34 +312,34 @@ public class AdminService {
     }
     public List<Passenger> getAllPassengers() throws ClassNotFoundException, SQLException{
         Connection conn = null;
-        List<Passenger> passengers = new ArrayList<Passenger>();
+        List<Passenger> bookings = new ArrayList<Passenger>();
         try {
             conn = connUtil.getConnection();
             PassengerDAO pdao = new PassengerDAO(conn);
-            passengers = pdao.readPassengers();
-            return passengers;
+            bookings = pdao.readPassengers();
+            return bookings;
         } catch (SQLException ex) {
             return Collections.emptyList();
         }
     }
-    public List<Passenger> getPassengerById(Integer passengerId) throws ClassNotFoundException, SQLException{
+    public List<Passenger> getPassengerById(Integer bookingId) throws ClassNotFoundException, SQLException{
         Connection conn = null;
-        List<Passenger> passengers = new ArrayList<Passenger>();
+        List<Passenger> bookings = new ArrayList<Passenger>();
         try {
             conn = connUtil.getConnection();
             PassengerDAO pdao = new PassengerDAO(conn);
-            passengers = pdao.readPassengersById(passengerId);
-            return passengers;
+            bookings = pdao.readPassengersById(bookingId);
+            return bookings;
         } catch (SQLException ex) {
             return Collections.emptyList();
         }
     }
-    public void deletePassenger(Integer passengerId) throws ClassNotFoundException, SQLException{
+    public void deletePassenger(Integer bookingId) throws ClassNotFoundException, SQLException{
         Connection conn = null;
         try {
             conn = connUtil.getConnection();
             PassengerDAO pdao = new PassengerDAO(conn);
-            pdao.deletePassenger(passengerId);
+            pdao.deletePassenger(bookingId);
             conn.commit();
             System.out.println("Passenger Deleted");
         } catch(ClassNotFoundException | SQLException e) {
@@ -272,8 +352,84 @@ public class AdminService {
         }
     }
     
-    // ** SERVICE METHODS FOR EMPLOYEES OPERATIONS ** /
-
+    // ** SERVICE METHODS FOR EMPLOYEES and TRAVELLERS OPERATIONS ** /
+    public void addUser(Integer roleId, String givenName, String familyName, String userName, String email, String password, String phone) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        try {
+            conn = connUtil.getConnection();
+            UserDAO Udao = new UserDAO(conn);
+            Udao.addUser(roleId, givenName, familyName, userName, email, password, phone);
+            conn.commit();
+            System.out.println("USER added");
+        } catch(ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            conn.rollback();
+        } finally {
+            if(conn != null){
+                conn.close();
+            }
+        }
+    }
+    public void updateEmployeeUser(Integer bookingId, Integer newBookingId) throws 
+    ClassNotFoundException, SQLException{
+        Connection conn = null;
+        try {
+            conn = connUtil.getConnection();
+            PassengerDAO pdao = new PassengerDAO(conn);
+            pdao.updatePassenger(bookingId, newBookingId);
+            conn.commit();
+            System.out.println("Flight Updated");
+        } catch(ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            conn.rollback();
+        } finally {
+            if(conn != null){
+                conn.close();
+            }
+        }
+    }
+    public List<Passenger> getAllEmployeeUser() throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        List<Passenger> bookings = new ArrayList<Passenger>();
+        try {
+            conn = connUtil.getConnection();
+            PassengerDAO pdao = new PassengerDAO(conn);
+            bookings = pdao.readPassengers();
+            return bookings;
+        } catch (SQLException ex) {
+            return Collections.emptyList();
+        }
+    }
+    public List<Passenger> getEmployeeUserById(Integer bookingId) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        List<Passenger> bookings = new ArrayList<Passenger>();
+        try {
+            conn = connUtil.getConnection();
+            PassengerDAO pdao = new PassengerDAO(conn);
+            bookings = pdao.readPassengersById(bookingId);
+            return bookings;
+        } catch (SQLException ex) {
+            return Collections.emptyList();
+        }
+    }
+    public void deleteEmployeeUser(Integer bookingId) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        try {
+            conn = connUtil.getConnection();
+            PassengerDAO pdao = new PassengerDAO(conn);
+            pdao.deletePassenger(bookingId);
+            conn.commit();
+            System.out.println("Passenger Deleted");
+        } catch(ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            conn.rollback();
+        } finally {
+            if(conn != null){
+                conn.close();
+            }
+        }
+    }
+    
 
 
 

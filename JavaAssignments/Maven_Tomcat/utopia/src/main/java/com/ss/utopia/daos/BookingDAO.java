@@ -14,22 +14,22 @@ public class BookingDAO extends BaseDAO<Booking> {
 		super(conn);
 	}
 
-	public void addBooking(Booking booking) throws ClassNotFoundException, SQLException {
+	public void addBooking(Integer isActive, String confirmationCode) throws ClassNotFoundException, SQLException {
 		save("INSERT INTO booking (is_active, confirmation_code) VALUES (?, ?)", new Object[] {
-			booking.getIsActive(), booking.getConfirmationCode() });
+			isActive, confirmationCode });
 	}
 
-	public void updateBooking(Booking booking) throws ClassNotFoundException, SQLException {
-		save("UPDATE booking SET is_active WHERE id = ?",
-				new Object[] { booking.getIsActive(), booking.getBookingId() }); 
+	public void updateBooking(Integer bookingId, Integer isActive) throws ClassNotFoundException, SQLException {
+		save("UPDATE booking SET is_active = ? WHERE id = ?",
+				new Object[] { isActive, bookingId }); 
 	}
 
-	public void deleteBooking(Booking booking) throws ClassNotFoundException, SQLException {
-		save("DELETE from booking where id = ?", new Object[] { booking.getBookingId() });
+	public void deleteBooking(Integer bookingId) throws ClassNotFoundException, SQLException {
+		save("DELETE from booking where id = ?", new Object[] { bookingId });
 	}
 
 	public List<Booking> readBookings() throws ClassNotFoundException, SQLException {
-		return read("SELECT * FROM booking", null);
+		return read("SELECT * FROM booking limit 10", new Object[] {});
 	}
 	
 	public List<Booking> readBookingsById(String bookingId) throws ClassNotFoundException, SQLException {

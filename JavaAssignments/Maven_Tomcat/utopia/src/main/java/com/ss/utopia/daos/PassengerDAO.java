@@ -41,7 +41,7 @@ public class PassengerDAO extends BaseDAO<Passenger> {
 	}
 
 	public List<Passenger> readPassengers() throws ClassNotFoundException, SQLException {
-		return read("SELECT * FROM passenger", new Object[] {});
+		return read("select * from passenger join booking on booking.id=passenger.booking_id;", new Object[] {});
 	}
 	
 	public List<Passenger> readPassengersById(Integer passengerId) throws ClassNotFoundException, SQLException {
@@ -62,10 +62,6 @@ public class PassengerDAO extends BaseDAO<Passenger> {
             passenger.setGender(rs.getString("gender"));
 			passenger.setAddress(rs.getString("address"));
 			passengers.add(passenger);
-
-			Booking booking = new Booking();
-			booking.setBookingId(rs.getInt("booking_id"));
-			passenger.setBookingId(booking);
 			
 		}
 		return passengers;

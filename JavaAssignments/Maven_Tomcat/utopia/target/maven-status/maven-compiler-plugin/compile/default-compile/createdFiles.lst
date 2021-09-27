@@ -1,4 +1,5 @@
 com/ss/utopia/models/BookingAgent.class
+com/ss/utopia/menu/admin/adminCrud/AdminTravellersMenu.class
 com/ss/utopia/daos/AirplaneTypeDAO.class
 com/ss/utopia/menu/admin/adminCrud/AdminPassengerMenu.class
 com/ss/utopia/models/FlightBooking.class
@@ -8,6 +9,7 @@ com/ss/utopia/models/Airport.class
 com/ss/utopia/daos/UserRoleDAO.class
 com/ss/utopia/App.class
 com/ss/utopia/services/TravellerService.class
+com/ss/utopia/menu/admin/adminCrud/AdminBookingMenu.class
 com/ss/utopia/models/BookingGuest.class
 com/ss/utopia/daos/BookingDAO.class
 com/ss/utopia/models/AirplaneType.class
@@ -31,6 +33,7 @@ com/ss/utopia/daos/BaseDAO.class
 com/ss/utopia/menu/traveller/TravellerMenu.class
 com/ss/utopia/utilities/ColorUtil.class
 com/ss/utopia/menu/admin/adminCrud/AdminFlightsMenu.class
+com/ss/utopia/menu/admin/adminCrud/AdminEmployeesMenu.class
 com/ss/utopia/daos/PassengerDAO.class
 com/ss/utopia/models/UserRole.class
 com/ss/utopia/daos/AirplaneDAO.class

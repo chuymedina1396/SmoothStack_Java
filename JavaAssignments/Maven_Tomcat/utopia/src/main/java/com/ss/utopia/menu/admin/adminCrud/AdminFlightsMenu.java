@@ -44,15 +44,17 @@ public class AdminFlightsMenu {
             System.out.println("Enter a Route ID for the flight");
             Integer route_id = getIntInput();
             route.setRouteId(route_id);
-            route.getDestAirport();
-            route.getOriginAirport();
-            ;
+            System.out.println("Enter a Destination airport:");
+            String destAirport = getStringInput();
+            route.getDestAirport().setAirportCode(destAirport);
+            System.out.println("Enter a Origin airport:");
+            String originAirport = getStringInput();
+            route.getOriginAirport().setAirportCode(originAirport);
 
             System.out.println("Enter Airplane ID for Flight");
             Integer airplane_id = getIntInput();
             airplane.setAirplaneId(airplane_id);
             airplane.getAirplaneTypeId();
-            // flight.setAirplaneId(airplane_id);
 
             System.out.println("Enter Departure time for flight");
             String departure_time = getDateInput();
@@ -67,7 +69,7 @@ public class AdminFlightsMenu {
             flight.setSeatPrice(seat_price);
 
             AdminService adminService = new AdminService();
-            adminService.addFlight(route, airplane, flight);
+            adminService.addFlight(flight, route, airplane);
 
             System.out.println("Add this data: " + route + " Route Data " +" ** Airplane Data **  "+ airplane+ " **FLIGHT DATA***" +flight+ " to the addFlight service!");
 

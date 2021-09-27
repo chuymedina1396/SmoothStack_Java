@@ -14,14 +14,15 @@ public class UserDAO extends BaseDAO<User> {
 		super(conn);
 	}
 
-	public void addUser(User user) throws ClassNotFoundException, SQLException {
+	public void addUser(Integer roleId, String givenName, String familyName, String userName, String email, String password, String phone) throws ClassNotFoundException, SQLException {
 		save("INSERT INTO user (role_id, given_name, family_name, username, email, password, phone ) VALUES (?,?,?,?,?,?,?)", new Object[] {
-			user.getUserRoleId().getUserRoleId(),
-			user.getGivenName(),
-			user.getUsername(),
-			user.getEmail(),
-			user.getPassword(),
-			user.getPhone()
+			roleId,
+			givenName,
+			familyName,
+			userName,
+			email,
+			password,
+			phone
 		});
 	}
 

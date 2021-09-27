@@ -1,13 +1,12 @@
 package com.ss.utopia.menu.admin;
 
-
-
 import java.sql.SQLException;
 
 import com.ss.utopia.menu.MainMenu;
 import com.ss.utopia.menu.admin.adminCrud.AdminAirportMenu;
 import com.ss.utopia.menu.admin.adminCrud.AdminFlightsMenu;
 import com.ss.utopia.menu.admin.adminCrud.AdminPassengerMenu;
+import com.ss.utopia.menu.admin.adminCrud.AdminBookingMenu;
 
 import static com.ss.utopia.utilities.ScannerUtil.getIntInput;
 import static com.ss.utopia.utilities.StringSeperatorUtil.newLine;
@@ -35,6 +34,10 @@ public class AdminMenu {
             if(selection == 1){
                 AdminFlightsMenu adminFlightMenu = new AdminFlightsMenu();
                 adminFlightMenu.AdminFlightsStartMenu();
+            }
+            if(selection == 3){
+                AdminBookingMenu adminBookingMenu = new AdminBookingMenu();
+                adminBookingMenu.AdminBookingsStartMenu();
             }
             if(selection == 4){
                 AdminPassengerMenu.AdminPassengersStartMenu();

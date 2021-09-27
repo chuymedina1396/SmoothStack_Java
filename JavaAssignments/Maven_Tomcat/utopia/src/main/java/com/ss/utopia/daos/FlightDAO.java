@@ -19,8 +19,8 @@ public class FlightDAO extends BaseDAO<Flight> {
     
 	public void addFlight(Flight flight) throws ClassNotFoundException, SQLException {
 		save("INSERT INTO flight (route_id, airplane_id, departure_time, reserved_seats, seat_price ) VALUES (?, ?, ?, ?, ?)", new Object[] {
-				flight.getRouteId().getRouteId(),
-				flight.getAirplane().getAirplaneId(),
+				flight.getRouteId(),
+				flight.getAirplane(),
 				flight.getDepartureTime(),
 				flight.getReservedSeats(),
 				flight.getSeatPrice()
@@ -29,7 +29,7 @@ public class FlightDAO extends BaseDAO<Flight> {
 
 	public void updateFlight(Float seatPrice, Integer flightId) throws ClassNotFoundException, SQLException {
 		save("UPDATE flight SET seat_price = ? WHERE id = ?", new Object[] { 
-			seatPrice, 
+			seatPrice,
 			flightId
 		});
 	}
