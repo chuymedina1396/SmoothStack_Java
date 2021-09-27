@@ -56,6 +56,7 @@ public class FlightDAO extends BaseDAO<Flight> {
 		while (rs.next()) {
 			Flight flight = new Flight();
 			Route route = new Route();
+			route.setRouteId(rs.getInt("route_id"));
 			Airplane airplane = new Airplane();
 			flight.setFlightId(rs.getInt("id"));
 			// flight.setRouteId(route.getRouteId());
@@ -63,6 +64,7 @@ public class FlightDAO extends BaseDAO<Flight> {
 			flight.setDepartureTime(rs.getString("departure_time"));
 			flight.setReservedSeats(rs.getInt("reserved_seats"));
 			flight.setSeatPrice(rs.getFloat("seat_price"));
+			flight.setRouteId(route);
 			flights.add(flight);
 		}
 		return flights;
