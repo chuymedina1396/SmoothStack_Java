@@ -22,7 +22,7 @@ public class ScannerUtil {
 
     public static String getConfirmationCode() {  
         StringBuffer buffer = new StringBuffer();  
-        for (int i = 0; i < 10; i++) { 
+        for (int i = 0; i < 10; i++) {
             buffer.append(CHARS[random.nextInt(CHARS.length)]);  
         }  
         return buffer.toString();  
