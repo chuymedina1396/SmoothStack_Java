@@ -8,16 +8,20 @@ import java.util.List;
 
 import com.ss.utopia_spring.models.Airport;
 
+import org.springframework.stereotype.Component;
+
+
+@Component
 public class AirportDAO extends BaseDAO<Airport> {
 
 	public AirportDAO(Connection conn) {
 		super(conn);
 	}
 
-	public void addAirport(String airport, String city) throws ClassNotFoundException, SQLException {
+	public void addAirport(Airport airport) throws ClassNotFoundException, SQLException {
 		save("INSERT INTO airport (iata_id, city) VALUES (?, ?)", new Object[] {
-				airport,
-				city
+				airport.getAirportCode(),
+				airport.getCity()
 			});
 	}
 
@@ -38,7 +42,7 @@ public class AirportDAO extends BaseDAO<Airport> {
 	
 	public List<Airport> readAirportsByAirportCode(Airport airport) throws ClassNotFoundException, SQLException {
 		return read("SELECT * FROM airport WHERE iata_id = ?", new Object[] { 
-			airport.getAirportCode() 
+			airport.getAirportCode()
 		});
 	}
 
