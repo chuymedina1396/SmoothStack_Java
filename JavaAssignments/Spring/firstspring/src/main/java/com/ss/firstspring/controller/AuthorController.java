@@ -22,7 +22,7 @@ public class AuthorController {
     AuthorService authorService;
 
     @RequestMapping(path= "/lms/authors/{authorId}", method= RequestMethod.GET)
-    public Author getAuthorById(int authorId){
+    public Author getAuthorById(@PathVariable int authorId){
         return authorService.getAuthorById(authorId);
     }
 
