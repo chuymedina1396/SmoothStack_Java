@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 // Service is a child class of Component so which ever should work
 @Component
 public class AirportService {
-    @Autowired
-    AirportDAO airportDAO;
+    // @Autowired
+    // AirportDAO airportDAO;
 
 
     // public Airport getAirportByCode(String airportCode){

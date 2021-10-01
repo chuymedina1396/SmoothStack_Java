@@ -14,7 +14,6 @@ public class AirplaneDAO extends BaseDAO<Airplane> {
 		super(conn);
 	}
 
-    
 	public void addAirplane(Airplane airplane) throws ClassNotFoundException, SQLException {
 		save("INSERT INTO airplane (type_id) VALUES (?)", new Object[] {
 				airplane.getAirplaneTypeId() });

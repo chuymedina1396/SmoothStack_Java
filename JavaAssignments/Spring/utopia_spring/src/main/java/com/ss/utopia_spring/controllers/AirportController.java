@@ -27,10 +27,4 @@ public class AirportController {
         return myString;
     }
 
-    // @RequestMapping(path= "/lms/author/", method= RequestMethod.POST)
-    // public ResponseEntity<String> addAuthor(@RequestBody Author author){
-    //     authorService.addAuthor(author);
-    //     return new ResponseEntity<String>(HttpStatus.CREATED);
-    // }
-
 }
