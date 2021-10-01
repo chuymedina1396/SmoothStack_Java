@@ -15,9 +15,9 @@ public class AuthorDAO {
     }
 
     public Author addAuthor(Author author){
-        // Author author = new Author();
-        // author.setAuthorId(authorId);
-        // author.setName("author name __" + authorId);
+        Author newAuthor = new Author();
+        author.setAuthorId(newAuthor.getAuthorId());
+        author.setName("author name __" + newAuthor.getName());
         return author;
     }
 

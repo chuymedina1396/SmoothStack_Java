@@ -1,7 +1,7 @@
 package com.ss.utopia_spring.controllers;
 
+import com.ss.utopia_spring.entities.Airport;
 import com.ss.utopia_spring.service.AirportService;
-import com.ss.utopia_spring.models.Airport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,10 +21,15 @@ public class AirportController {
     @Autowired 
     AirportService airportService;
 
-    @RequestMapping(path= "/airports", method= RequestMethod.GET)
-    public String getAuthorById(){
-        String myString = "Hello from api";
-        return myString;
+    @RequestMapping(path= "/airports/{airportcode}", method= RequestMethod.GET)
+    public Airport getAirport(@PathVariable String airportcode){
+        return airportService.getAirportByCode(airportcode);
+    }
+
+    @RequestMapping(path= "/airports/airport/", method= RequestMethod.POST)
+    public ResponseEntity<String> addAirport(@RequestBody Airport airport){
+        airportService.addAirport(airport);
+        return new ResponseEntity<String>(HttpStatus.CREATED);
     }
 
 }
