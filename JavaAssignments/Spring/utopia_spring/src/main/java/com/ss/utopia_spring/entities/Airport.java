@@ -1,10 +1,13 @@
 package com.ss.utopia_spring.entities;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumns;
 import javax.persistence.Table;
 
 import java.util.List;
@@ -15,8 +18,14 @@ import java.util.Objects;
 @Table(name = "airport")
 public class Airport {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String airportCode;
+    @Column(name = "city")
 	private String city;
+    @ElementCollection
+    @CollectionTable(name="Route", joinColumns= @JoinColumns(city = ""))
+    @Column(name="routes")
 	private List<Route> routes;
 
 

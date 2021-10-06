@@ -15,10 +15,10 @@ public class AirportService {
     AirportDAO airportDAO;
 
     public Airport getAirportByCode(String airportCode){
-        return airportDAO.getAiportByCode(airportCode);
+        return airportDAO.getById(airportCode);
         
     }
     public Airport addAirport(Airport airport){
-        return airportDAO.addAirport(airport);
+        return airportDAO.save(airport);
     }
 }
