@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 // import org.springframework.stereotype.Service;
 
-
 // Service is a child class of Component so which ever should work
 @Component
 public class AirportService {

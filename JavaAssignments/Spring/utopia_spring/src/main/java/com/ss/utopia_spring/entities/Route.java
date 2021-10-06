@@ -1,35 +1,51 @@
 //Package
 package com.ss.utopia_spring.entities;
 
-//Utilities 
-import java.util.List;
+//JPA libraries
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import java.util.Objects;
 
+
+@Entity
+@Table(name = "route")
 public class Route {
 
-	private Integer routeId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "origin_id", referencedColumnName = "airportCode")
 	private Airport originAirport;
-	private Airport destAirport;
 
-    private List<Flight> flights;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "destination_id", referencedColumnName = "airportCode") //I think this is right
+	private Airport destAirport;
 
 
     public Route() {
     }
 
-    public Route(Integer routeId, Airport originAirport, Airport destAirport, List<Flight> flights) {
-        this.routeId = routeId;
+    public Route(Integer id, Airport originAirport, Airport destAirport) {
+        this.id = id;
         this.originAirport = originAirport;
         this.destAirport = destAirport;
-        this.flights = flights;
     }
 
-    public Integer getRouteId() {
-        return this.routeId;
+    public Integer getId() {
+        return this.id;
     }
 
-    public void setRouteId(Integer routeId) {
-        this.routeId = routeId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Airport getOriginAirport() {
@@ -48,16 +64,8 @@ public class Route {
         this.destAirport = destAirport;
     }
 
-    public List<Flight> getFlights() {
-        return this.flights;
-    }
-
-    public void setFlights(List<Flight> flights) {
-        this.flights = flights;
-    }
-
-    public Route routeId(Integer routeId) {
-        setRouteId(routeId);
+    public Route id(Integer id) {
+        setId(id);
         return this;
     }
 
@@ -71,11 +79,6 @@ public class Route {
         return this;
     }
 
-    public Route flights(List<Flight> flights) {
-        setFlights(flights);
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -84,23 +87,24 @@ public class Route {
             return false;
         }
         Route route = (Route) o;
-        return Objects.equals(routeId, route.routeId) && Objects.equals(originAirport, route.originAirport) && Objects.equals(destAirport, route.destAirport) && Objects.equals(flights, route.flights);
+        return Objects.equals(id, route.id) && Objects.equals(originAirport, route.originAirport) && Objects.equals(destAirport, route.destAirport);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(routeId, originAirport, destAirport, flights);
+        return Objects.hash(id, originAirport, destAirport);
     }
 
     @Override
     public String toString() {
         return "{" +
-            " routeId='" + getRouteId() + "'" +
+            " id='" + getId() + "'" +
             ", originAirport='" + getOriginAirport() + "'" +
             ", destAirport='" + getDestAirport() + "'" +
-            ", flights='" + getFlights() + "'" +
             "}";
     }
+
+
 	
 
 }

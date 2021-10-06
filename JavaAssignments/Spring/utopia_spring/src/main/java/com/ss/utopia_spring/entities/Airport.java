@@ -1,14 +1,10 @@
 package com.ss.utopia_spring.entities;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumns;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import java.util.List;
@@ -24,10 +20,6 @@ public class Airport {
 	private String airportCode;
     @Column(name = "city")
 	private String city;
-    // @OneToMany(mappedBy="airport")
-	// private List<Route> routes;
-    // @OneToMany(mappedBy="airport")
-    // private Route destination_id;
 
 
     public Airport() {
