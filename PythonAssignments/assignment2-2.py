@@ -96,6 +96,7 @@ def gen_dict(n):
 
 
 
+
 if __name__ == '__main__':
     print_list()
     get_nester()
