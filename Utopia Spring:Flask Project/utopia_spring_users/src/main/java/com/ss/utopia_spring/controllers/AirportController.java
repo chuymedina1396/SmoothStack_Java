@@ -1,7 +1,7 @@
 package com.ss.utopia_spring.controllers;
 
 import com.ss.utopia_spring.entities.Airport;
-import com.ss.utopia_spring.service.AirportService;
+import com.ss.utopia_spring.services.AirportService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,9 +27,9 @@ public class AirportController {
     }
 
     @RequestMapping(path= "/airports/airport/", method= RequestMethod.POST)
-    public ResponseEntity<String> addAirport(@RequestBody Airport airport){
+    public ResponseEntity<Object> addAirport(@RequestBody Airport airport){
         airportService.addAirport(airport);
-        return new ResponseEntity<String>(HttpStatus.CREATED);
+        return new ResponseEntity<Object>(HttpStatus.CREATED);
     }
 
 }

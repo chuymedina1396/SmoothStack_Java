@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import java.util.List;
 import java.util.Objects;
 
 
@@ -16,8 +15,8 @@ import java.util.Objects;
 public class Airport {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String airportCode;
+    @Column(name = "iata_id")
+	private String iata_id;
     @Column(name = "city")
 	private String city;
 
@@ -25,17 +24,17 @@ public class Airport {
     public Airport() {
     }
 
-    public Airport(String airportCode, String city) {
-        this.airportCode = airportCode;
+    public Airport(String iata_id, String city) {
+        this.iata_id = iata_id;
         this.city = city;
     }
 
-    public String getAirportCode() {
-        return this.airportCode;
+    public String getIata_id() {
+        return this.iata_id;
     }
 
-    public void setAirportCode(String airportCode) {
-        this.airportCode = airportCode;
+    public void setIata_id(String iata_id) {
+        this.iata_id = iata_id;
     }
 
     public String getCity() {
@@ -46,8 +45,8 @@ public class Airport {
         this.city = city;
     }
 
-    public Airport airportCode(String airportCode) {
-        setAirportCode(airportCode);
+    public Airport iata_id(String iata_id) {
+        setIata_id(iata_id);
         return this;
     }
 
@@ -64,21 +63,23 @@ public class Airport {
             return false;
         }
         Airport airport = (Airport) o;
-        return Objects.equals(airportCode, airport.airportCode) && Objects.equals(city, airport.city);
+        return Objects.equals(iata_id, airport.iata_id) && Objects.equals(city, airport.city);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(airportCode, city);
+        return Objects.hash(iata_id, city);
     }
 
     @Override
     public String toString() {
         return "{" +
-            " airportCode='" + getAirportCode() + "'" +
+            " iata_id='" + getIata_id() + "'" +
             ", city='" + getCity() + "'" +
             "}";
     }
+
+    
 
 
 

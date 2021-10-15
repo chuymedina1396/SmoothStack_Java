@@ -13,7 +13,6 @@ import javax.persistence.Table;
 
 import java.util.Objects;
 
-
 @Entity
 @Table(name = "route")
 public class Route {
@@ -23,11 +22,11 @@ public class Route {
 	private Integer id;
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "origin_id", referencedColumnName = "airportCode")
+    @JoinColumn(name = "origin_id", referencedColumnName = "iata_id")
 	private Airport originAirport;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "destination_id", referencedColumnName = "airportCode") //I think this is right
+    @JoinColumn(name = "destination_id", referencedColumnName = "iata_id") //I think this is right
 	private Airport destAirport;
 
 

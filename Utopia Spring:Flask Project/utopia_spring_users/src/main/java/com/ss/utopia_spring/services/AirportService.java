@@ -1,4 +1,4 @@
-package com.ss.utopia_spring.service;
+package com.ss.utopia_spring.services;
 
 import com.ss.utopia_spring.daos.AirportDAO;
 import com.ss.utopia_spring.entities.Airport;
@@ -12,10 +12,8 @@ import org.springframework.stereotype.Component;
 public class AirportService {
     @Autowired
     AirportDAO airportDAO;
-
-    public Airport getAirportByCode(String airportCode){
-        return airportDAO.getById(airportCode);
-        
+    public Airport getAirportByCode(String iata_id){
+        return airportDAO.findById(iata_id).get();
     }
     public Airport addAirport(Airport airport){
         return airportDAO.save(airport);

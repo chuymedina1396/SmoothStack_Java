@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../firstFlask"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../Flask_Blog"
+		}
+	],
+	"settings": {}
+}

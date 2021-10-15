@@ -15,5 +15,7 @@ def home():
    }
    return render_template("index.html", context=context)
 
+print("Hello there")
+
 if __name__ == '__main__': 
    app.run(port=5000, debug=True)
